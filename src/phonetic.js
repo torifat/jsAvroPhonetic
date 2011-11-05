@@ -40,6 +40,13 @@ OmicronLab.Avro.Phonetic.data = {
             ]
         },
         {
+            "find":"psh",
+            "replace":"পশ",
+            "rules":
+            [
+            ]
+        },
+        {
             "find":"bj",
             "replace":"ব্জ",
             "rules":
@@ -1629,21 +1636,21 @@ OmicronLab.Avro.Phonetic.data = {
         },
         {
             "find":"Rg",
-            "replace":"ড়্গ",
+            "replace":"ড়্গ",
             "rules":
             [
             ]
         },
         {
             "find":"Rh",
-            "replace":"ঢ়",
+            "replace":"ঢ়",
             "rules":
             [
             ]
         },
         {
             "find":"R",
-            "replace":"ড়",
+            "replace":"ড়",
             "rules":
             [
             ]
@@ -2232,7 +2239,7 @@ OmicronLab.Avro.Phonetic.data = {
                             "negative":true
                         }
                     ],
-                    "replace":"য়া"
+                    "replace":"য়া"
                 },
                 {
                     "matches":
@@ -2589,7 +2596,7 @@ OmicronLab.Avro.Phonetic.data = {
                             "negative":true
                         }
                     ],
-                    "replace":"য়"
+                    "replace":"য়"
                 },
                 {
                     "matches":
@@ -2601,13 +2608,13 @@ OmicronLab.Avro.Phonetic.data = {
                             "negative":false
                         }
                     ],
-                    "replace":"ইয়"
+                    "replace":"ইয়"
                 }
             ]
         },
         {
             "find":"Y",
-            "replace":"য়",
+            "replace":"য়",
             "rules":
             [
             ]
@@ -2640,7 +2647,7 @@ OmicronLab.Avro.Phonetic.data = {
                             "negative":false
                         }
                     ],
-                    "replace":"ওয়"
+                    "replace":"ওয়"
                 },
                 {
                     "matches":
