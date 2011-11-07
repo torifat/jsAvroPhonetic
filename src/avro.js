@@ -11,7 +11,7 @@
 	License for the specific language governing rights and limitations
 	under the License.
 
-	The Original Code is JAvroPhonetic
+	The Original Code is jsAvroPhonetic
 
 	The Initial Developer of the Original Code is
 	Rifat Nabi <to.rifat@gmail.com>
