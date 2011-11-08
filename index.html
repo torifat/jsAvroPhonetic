@@ -1,1 +1,71 @@
-My GitHub Page
+<!DOCTYPE html>
+<html debug="true">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Official jQuery Plugin for Avro Phonetic</title>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<script src="https://raw.github.com/LeaVerou/prefixfree/master/prefixfree.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<a target="_blank" class="github-ribbon" href="https://github.com/torifat/jsAvroPhonetic/"><img src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+	
+	<div class="wrap">
+		<div class="wrapper">
+			<h1>Official jQuery Plugin for Avro Phonetic</h1>
+			<p class="justify">Various efforts have been made to create a javascript version of <span class="bigger">Avro Phonetic</span>, but none of them is <span class="bigger">100% compatible</span> to Avro Keyboard’s phonetic scheme. So we have created this official version and made it a <span class="bigger">jQuery Plugin</span> so that people can easily integrate Bangla typing facility to their sites without depending on a native IME. It is also the first <span class="big">platform independent</span> implementation of Avro Phonetic, so if Avro Keyboard is not available, you can use this handy tool to type <span class="bigger">Bangla</span>.</p>
+			
+			<a name="demo" href="#demo"></a>
+			<h2>Demo</h2>
+			<p>
+				<textarea class="bangla"></textarea>
+			</p>
+			
+			<h2>Browser Compatibility Matrix</h2>
+	        <table class="browsers">
+	            <tr>
+	                <th>Internet Explorer</th>
+	                <td>6.0</td>
+	                <td>7.0</td>
+	                <td>8.0</td>
+	                <td>9.0</td>
+	            </tr>
+	
+	            <tr>
+	                <th>Firefox</th>
+	                <td colspan="2">3.&#0134</td>
+	                <td>4.&#0134</td>
+	                <td>5.&#0134</td>
+	            </tr>
+	            <tr>
+	
+	                <th>Chrome &#0134</th>
+	                <td colspan=4>Latest stable</td>
+	            </tr>
+	            <tr>
+	                <th>Safari</th>
+	                <td>5.&#0134</td>
+	                <td colspan="2">iOS 3.&#0134</td>
+	
+	                <td>iOS 4.&#0134</td>
+	            </tr>
+	            <tr>
+	                <th>Webkit</th>
+	                <td colspan="4">Android 2.&#0134</td>
+	            </tr>
+	        </table>
+		</div>
+	</div>
+	
+	<script src="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(function(){
+			$('textarea').avro({'bn':true}, function(s){
+				//console.log(s);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+	color: #eee;
+    background:
+      radial-gradient(black 15%, transparent 16%) 0 0,
+      radial-gradient(black 15%, transparent 16%) 8px 8px,
+      radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+      radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+    text-shadow: 1px 1px rgba(238, 238, 238, 0.25);
+	font: 20px/40px 'Open Sans Condensed', sans-serif;
+}
+.wrap {
+	width: 960px;
+	margin: 0 auto;
+}
+.wrapper {
+	padding: 40px 20px;
+}
+.github-ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+}
+.justify {
+	text-align: justify;
+}
+.big {
+	font-size: 25px;
+}
+h1 {
+	font-size: 35px;
+}
+h2, .bigger {
+	font-size: 30px;
+	font-weight: bold;
+}
+h1, h2 {
+	margin-bottom: 10px;
+	color: #f72;
+	text-shadow: 1px 1px rgba(255, 119, 40, 0.25);
+}
+h2 {
+	font-variant: small-caps;
+}
+p {
+	margin-bottom: 20px;
+}
+textarea {
+	padding: 10px;
+	width: 900px;
+	height: 200px;
+	background: #777;
+	border: 1px solid #eee;
+	color: #fff;
+	font: normal 20px/30px 'Siyam Rupali', KalPurush, SolaimanLipi, Georgia, serif;
+	border-radius: 5px;
+}
+table {
+	font-size: 15px;
+	border: 0;
+}
+td, th {
+	padding: 0 12px;
+	background: #333;
+}
