@@ -30,18 +30,19 @@
     var methods = {
         last : null,
         opt : {'bn' : true},
-        isMod : false,
+        isBlack : false,
         // http://unixpapa.com/js/key.html
-        modifiers : [17, 18, 20, 144, 91, 92, 93, 224],
+        blacklist : [8, 17, 18, 20, 144, 91, 92, 93, 224, 33, 34, 35, 36, 37, 38, 39, 40, 46],
         callback : null,
         init : function(options, callback) {
 
             if(options) {
                 $.extend(methods.opt, options);
             }
-            methods.callback = callback;
-            if(typeof methods.callback === 'function') {
-            	methods.callback(methods.opt.bn);
+            
+            if(callback && typeof callback === 'function') {
+            	methods.callback = callback;
+            	callback(methods.opt.bn);
             }
             
             return this.each(function(){
@@ -61,16 +62,16 @@
         keydown : function(e) {
         
         	var keycode = e.keyCode || e.which;
-        	if($.inArray(keycode, methods.modifiers) >= 0) {
-        		methods.isMod = true;
+        	if($.inArray(keycode, methods.blacklist) >= 0) {
+        		methods.isBlack = true;
         	}
         	
         },
         keyup : function(e) {
         
 			var keycode = e.keyCode || e.which;
-			if($.inArray(keycode, methods.modifiers) >= 0) {
-				methods.isMod = false;
+			if($.inArray(keycode, methods.blacklist) >= 0) {
+				methods.isBlack = false;
 			}        	
         },
         keypress : function(e) {
@@ -87,7 +88,7 @@
                 e.preventDefault();
             }
             
-            if(!methods.opt.bn || methods.isMod) {
+            if(!methods.opt.bn || methods.isBlack) {
             	methods.last = null;
             	return;
             }
@@ -96,7 +97,8 @@
                 methods.last = methods.getCaret(target);
             }
             
-            if(keycode === 32 || keycode === 13) {
+            // 32 - Space, 13 - Enter, 9 - Tab
+            if(keycode === 32 || keycode === 13 || keycode ===9) {
                 methods.replace(target);
                 methods.last = null;
             }
