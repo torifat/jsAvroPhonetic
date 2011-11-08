@@ -30,6 +30,7 @@
     var methods = {
         last : null,
         opt : {'bn' : true},
+        isCtrl : false,
         init : function(options) {
 
             if(options) {
@@ -37,6 +38,8 @@
             }
             
             return this.each(function(){
+                $(this).bind('keyup.avro', methods.keyup);
+                $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('keypress.avro', methods.keypress);
             });
 
@@ -48,18 +51,36 @@
             })
 
         },
+        keydown : function(e) {
+        	
+        	var keycode = e.keyCode || e.which;
+        	if(keycode === 224) {
+        		methods.isCtrl = true;
+        	}
+        	
+        },
+        keyup : function(e) {
+        
+			var keycode = e.keyCode || e.which;
+			if(keycode === 224) {
+				methods.isCtrl = false;
+			}        	
+        },
         keypress : function(e) {
             
-            // console.log(e);
             var keycode = e.keyCode || e.which || e.charCode;
             var target = e.currentTarget || e.target || e.srcElement;
             
-            if(e.ctrlKey === true && keycode === 13) {
+            if(e.ctrlKey && ($.browser.mozilla ? (keycode === 109) : (keycode === 13))) {
                 methods.opt.bn = !methods.opt.bn;
+                methods.last = null;
                 e.preventDefault();
             }
             
-            if(!methods.opt.bn) return;
+            if(!methods.opt.bn || methods.isCtrl) {
+            	methods.last = null;
+            	return;
+            }
             
             if(methods.last === null) {
                 methods.last = methods.getCaret(target);
@@ -83,7 +104,7 @@
                 range.collapse(true);
             }
             else {
-                el.value = el.value.substring(0, methods.last) + bangla + el.value.substring(cur);
+            	el.value = el.value.substring(0, methods.last) + bangla + el.value.substring(cur);
                 el.selectionStart = el.selectionEnd = (cur - (Math.abs(cur - methods.last) - bangla.length));
             }
             
