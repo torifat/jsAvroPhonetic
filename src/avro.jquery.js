@@ -30,7 +30,9 @@
     var methods = {
         last : null,
         opt : {'bn' : true},
-        isCtrl : false,
+        isMod : false,
+        // http://unixpapa.com/js/key.html
+        modifiers : [17, 18, 20, 144, 91, 92, 93, 224],
         init : function(options) {
 
             if(options) {
@@ -52,18 +54,18 @@
 
         },
         keydown : function(e) {
-        	
+        
         	var keycode = e.keyCode || e.which;
-        	if(keycode === 224) {
-        		methods.isCtrl = true;
+        	if($.inArray(keycode, methods.modifiers) >= 0) {
+        		methods.isMod = true;
         	}
         	
         },
         keyup : function(e) {
         
 			var keycode = e.keyCode || e.which;
-			if(keycode === 224) {
-				methods.isCtrl = false;
+			if($.inArray(keycode, methods.modifiers) >= 0) {
+				methods.isMod = false;
 			}        	
         },
         keypress : function(e) {
@@ -71,13 +73,13 @@
             var keycode = e.keyCode || e.which || e.charCode;
             var target = e.currentTarget || e.target || e.srcElement;
             
-            if(e.ctrlKey && ($.browser.mozilla ? (keycode === 109) : (keycode === 13))) {
+            if(e.ctrlKey && keycode === ($.browser.mozilla ? 109 : 13)) {
                 methods.opt.bn = !methods.opt.bn;
                 methods.last = null;
                 e.preventDefault();
             }
             
-            if(!methods.opt.bn || methods.isCtrl) {
+            if(!methods.opt.bn || methods.isMod) {
             	methods.last = null;
             	return;
             }
