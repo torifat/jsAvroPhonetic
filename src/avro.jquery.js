@@ -29,35 +29,53 @@
 
     var methods = {
         last : null,
+        opt : {'bn' : true},
         init : function(options) {
+
+            if(options) {
+                $.extend(methods.opt, options);
+            }
             
             return this.each(function(){
                 $(this).bind('keypress.avro', methods.keypress);
             });
 
         },
-        destroy: function() {
+        destroy : function() {
 
             return this.each(function(){
                 $(this).unbind('.avro');
             })
 
         },
-        keypress: function(e) {
+        keypress : function(e) {
+            
             // console.log(e);
             var keycode = e.keyCode || e.which || e.charCode;
             var target = e.currentTarget || e.target || e.srcElement;
+            
+            if(e.ctrlKey === true && keycode === 13) {
+                methods.opt.bn = !methods.opt.bn;
+                e.preventDefault();
+            }
+            
+            if(!methods.opt.bn) return;
+            
             if(methods.last === null) {
                 methods.last = methods.getCaret(target);
             }
+            
             if(keycode === 32 || keycode === 13) {
                 methods.replace(target);
                 methods.last = null;
             }
+            
         },
-        replace: function(el) {
+        replace : function(el) {
+            
             var cur = methods.getCaret(el);
             var bangla  = OmicronLab.Avro.Phonetic.parse(el.value.substring(methods.last, cur));
+            
             if(document.selection) {
                 var range = document.selection.createRange();
                 range.moveStart('character', -1 * (Math.abs(cur - methods.last)));
@@ -68,9 +86,11 @@
                 el.value = el.value.substring(0, methods.last) + bangla + el.value.substring(cur);
                 el.selectionStart = el.selectionEnd = (cur - (Math.abs(cur - methods.last) - bangla.length));
             }
+            
         },
         // http://stackoverflow.com/questions/263743/how-to-get-cursor-position-in-textarea
-        getCaret: function(el) {
+        getCaret : function(el) {
+            
             if (el.selectionStart) {
                 return el.selectionStart;
             } else if (document.selection) {
@@ -89,6 +109,7 @@
                 return rc.text.length;
             }
             return 0;
+            
         }
     };
 
