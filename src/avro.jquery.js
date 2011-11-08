@@ -28,11 +28,7 @@
 (function($){
 
     var methods = {
-        last : null,
         opt : {'bn' : true},
-        isBlack : false,
-        // http://unixpapa.com/js/key.html
-        blacklist : [8, 17, 18, 20, 144, 91, 92, 93, 224, 33, 34, 35, 36, 37, 38, 39, 40, 46],
         callback : null,
         init : function(options, callback) {
 
@@ -46,8 +42,6 @@
             }
             
             return this.each(function(){
-                $(this).bind('keyup.avro', methods.keyup);
-                $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('keypress.avro', methods.keypress);
             });
 
@@ -59,21 +53,6 @@
             })
 
         },
-        keydown : function(e) {
-        
-        	var keycode = e.keyCode || e.which;
-        	if($.inArray(keycode, methods.blacklist) >= 0) {
-        		methods.isBlack = true;
-        	}
-        	
-        },
-        keyup : function(e) {
-        
-			var keycode = e.keyCode || e.which;
-			if($.inArray(keycode, methods.blacklist) >= 0) {
-				methods.isBlack = false;
-			}        	
-        },
         keypress : function(e) {
             
             var keycode = e.keyCode || e.which || e.charCode;
@@ -84,42 +63,41 @@
                 if(typeof methods.callback === 'function') {
                 	methods.callback(methods.opt.bn);
                 }
-                methods.last = null;
                 e.preventDefault();
-            }
-            
-            if(!methods.opt.bn || methods.isBlack) {
-            	methods.last = null;
-            	return;
-            }
-            
-            if(methods.last === null) {
-                methods.last = methods.getCaret(target);
             }
             
             // 32 - Space, 13 - Enter, 9 - Tab
             if(keycode === 32 || keycode === 13 || keycode ===9) {
                 methods.replace(target);
-                methods.last = null;
             }
             
         },
         replace : function(el) {
             
             var cur = methods.getCaret(el);
-            var bangla  = OmicronLab.Avro.Phonetic.parse(el.value.substring(methods.last, cur));
+            var last = methods.findLast(el, cur);
+            var bangla  = OmicronLab.Avro.Phonetic.parse(el.value.substring(last, cur));
             
             if(document.selection) {
                 var range = document.selection.createRange();
-                range.moveStart('character', -1 * (Math.abs(cur - methods.last)));
+                range.moveStart('character', -1 * (Math.abs(cur - last)));
                 range.text = bangla;
                 range.collapse(true);
             }
             else {
-            	el.value = el.value.substring(0, methods.last) + bangla + el.value.substring(cur);
-                el.selectionStart = el.selectionEnd = (cur - (Math.abs(cur - methods.last) - bangla.length));
+            	el.value = el.value.substring(0, last) + bangla + el.value.substring(cur);
+                el.selectionStart = el.selectionEnd = (cur - (Math.abs(cur - last) - bangla.length));
             }
             
+        },
+        findLast : function(el, cur) {
+        
+        	var last = cur - 1;
+        	while(el.value.charAt(last) !== ' ' && last > 0) {
+        		last--;
+        	}
+        	return last;
+        	
         },
         // http://stackoverflow.com/questions/263743/how-to-get-cursor-position-in-textarea
         getCaret : function(el) {
