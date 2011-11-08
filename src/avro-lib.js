@@ -53,12 +53,19 @@ OmicronLab.Avro.Phonetic = {
 							
     							if(match.type === "suffix") {
     								chk = end;
-    							} 
+    							}
     							// Prefix
     							else {
     								chk = prev;
     							}
-							
+    							
+    							// Make match.negative
+    							match.negative = false;
+    							if(match.scope.charAt(0) === '!') {
+    							    match.negative = true;
+    							    match.scope = match.scope.substring(1);
+    							}
+    							
     							// Beginning
     							if(match.scope === "punctuation") {
     								if(
@@ -178,1242 +185,711 @@ OmicronLab.Avro.Phonetic = {
         [
             {
                 "find":"bhl",
-                "replace":"ভ্ল",
-                "rules":
-                [
-                ]
+                "replace":"ভ্ল"
             },
             {
                 "find":"psh",
-                "replace":"পশ",
-                "rules":
-                [
-                ]
+                "replace":"পশ"
             },
             {
                 "find":"bj",
-                "replace":"ব্জ",
-                "rules":
-                [
-                ]
+                "replace":"ব্জ"
             },
             {
                 "find":"bd",
-                "replace":"ব্দ",
-                "rules":
-                [
-                ]
+                "replace":"ব্দ"
             },
             {
                 "find":"bb",
-                "replace":"ব্ব",
-                "rules":
-                [
-                ]
+                "replace":"ব্ব"
             },
             {
                 "find":"bl",
-                "replace":"ব্ল",
-                "rules":
-                [
-                ]
+                "replace":"ব্ল"
             },
             {
                 "find":"bh",
-                "replace":"ভ",
-                "rules":
-                [
-                ]
+                "replace":"ভ"
             },
             {
                 "find":"vl",
-                "replace":"ভ্ল",
-                "rules":
-                [
-                ]
+                "replace":"ভ্ল"
             },
             {
                 "find":"b",
-                "replace":"ব",
-                "rules":
-                [
-                ]
+                "replace":"ব"
             },
             {
                 "find":"v",
-                "replace":"ভ",
-                "rules":
-                [
-                ]
+                "replace":"ভ"
             },
             {
                 "find":"cNG",
-                "replace":"চ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"চ্ঞ"
             },
             {
                 "find":"cch",
-                "replace":"চ্ছ",
-                "rules":
-                [
-                ]
+                "replace":"চ্ছ"
             },
             {
                 "find":"cc",
-                "replace":"চ্চ",
-                "rules":
-                [
-                ]
+                "replace":"চ্চ"
             },
             {
                 "find":"ch",
-                "replace":"ছ",
-                "rules":
-                [
-                ]
+                "replace":"ছ"
             },
             {
                 "find":"c",
-                "replace":"চ",
-                "rules":
-                [
-                ]
+                "replace":"চ"
             },
             {
                 "find":"dhn",
-                "replace":"ধ্ন",
-                "rules":
-                [
-                ]
+                "replace":"ধ্ন"
             },
             {
                 "find":"dhm",
-                "replace":"ধ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ধ্ম"
             },
             {
                 "find":"dgh",
-                "replace":"দ্ঘ",
-                "rules":
-                [
-                ]
+                "replace":"দ্ঘ"
             },
             {
                 "find":"ddh",
-                "replace":"দ্ধ",
-                "rules":
-                [
-                ]
+                "replace":"দ্ধ"
             },
             {
                 "find":"dbh",
-                "replace":"দ্ভ",
-                "rules":
-                [
-                ]
+                "replace":"দ্ভ"
             },
             {
                 "find":"dv",
-                "replace":"দ্ভ",
-                "rules":
-                [
-                ]
+                "replace":"দ্ভ"
             },
             {
                 "find":"dm",
-                "replace":"দ্ম",
-                "rules":
-                [
-                ]
+                "replace":"দ্ম"
             },
             {
                 "find":"DD",
-                "replace":"ড্ড",
-                "rules":
-                [
-                ]
+                "replace":"ড্ড"
             },
             {
                 "find":"Dh",
-                "replace":"ঢ",
-                "rules":
-                [
-                ]
+                "replace":"ঢ"
             },
             {
                 "find":"dh",
-                "replace":"ধ",
-                "rules":
-                [
-                ]
+                "replace":"ধ"
             },
             {
                 "find":"dg",
-                "replace":"দ্গ",
-                "rules":
-                [
-                ]
+                "replace":"দ্গ"
             },
             {
                 "find":"dd",
-                "replace":"দ্দ",
-                "rules":
-                [
-                ]
+                "replace":"দ্দ"
             },
             {
                 "find":"D",
-                "replace":"ড",
-                "rules":
-                [
-                ]
+                "replace":"ড"
             },
             {
                 "find":"d",
-                "replace":"দ",
-                "rules":
-                [
-                ]
+                "replace":"দ"
             },
             {
                 "find":"...",
-                "replace":"...",
-                "rules":
-                [
-                ]
+                "replace":"..."
             },
             {
                 "find":".`",
-                "replace":".",
-                "rules":
-                [
-                ]
+                "replace":"."
             },
             {
                 "find":"..",
-                "replace":"।।",
-                "rules":
-                [
-                ]
+                "replace":"।।"
             },
             {
                 "find":".",
-                "replace":"।",
-                "rules":
-                [
-                ]
+                "replace":"।"
             },
             {
                 "find":"ghn",
-                "replace":"ঘ্ন",
-                "rules":
-                [
-                ]
+                "replace":"ঘ্ন"
             },
             {
                 "find":"Ghn",
-                "replace":"ঘ্ন",
-                "rules":
-                [
-                ]
+                "replace":"ঘ্ন"
             },
             {
                 "find":"gdh",
-                "replace":"গ্ধ",
-                "rules":
-                [
-                ]
+                "replace":"গ্ধ"
             },
             {
                 "find":"Gdh",
-                "replace":"গ্ধ",
-                "rules":
-                [
-                ]
+                "replace":"গ্ধ"
             },
             {
                 "find":"gN",
-                "replace":"গ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"গ্ণ"
             },
             {
                 "find":"GN",
-                "replace":"গ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"গ্ণ"
             },
             {
                 "find":"gn",
-                "replace":"গ্ন",
-                "rules":
-                [
-                ]
+                "replace":"গ্ন"
             },
             {
                 "find":"Gn",
-                "replace":"গ্ন",
-                "rules":
-                [
-                ]
+                "replace":"গ্ন"
             },
             {
                 "find":"gm",
-                "replace":"গ্ম",
-                "rules":
-                [
-                ]
+                "replace":"গ্ম"
             },
             {
                 "find":"Gm",
-                "replace":"গ্ম",
-                "rules":
-                [
-                ]
+                "replace":"গ্ম"
             },
             {
                 "find":"gl",
-                "replace":"গ্ল",
-                "rules":
-                [
-                ]
+                "replace":"গ্ল"
             },
             {
                 "find":"Gl",
-                "replace":"গ্ল",
-                "rules":
-                [
-                ]
+                "replace":"গ্ল"
             },
             {
                 "find":"gg",
-                "replace":"জ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঞ"
             },
             {
                 "find":"GG",
-                "replace":"জ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঞ"
             },
             {
                 "find":"Gg",
-                "replace":"জ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঞ"
             },
             {
                 "find":"gG",
-                "replace":"জ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঞ"
             },
             {
                 "find":"gh",
-                "replace":"ঘ",
-                "rules":
-                [
-                ]
+                "replace":"ঘ"
             },
             {
                 "find":"Gh",
-                "replace":"ঘ",
-                "rules":
-                [
-                ]
+                "replace":"ঘ"
             },
             {
                 "find":"g",
-                "replace":"গ",
-                "rules":
-                [
-                ]
+                "replace":"গ"
             },
             {
                 "find":"G",
-                "replace":"গ",
-                "rules":
-                [
-                ]
+                "replace":"গ"
             },
             {
                 "find":"hN",
-                "replace":"হ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"হ্ণ"
             },
             {
                 "find":"hn",
-                "replace":"হ্ন",
-                "rules":
-                [
-                ]
+                "replace":"হ্ন"
             },
             {
                 "find":"hm",
-                "replace":"হ্ম",
-                "rules":
-                [
-                ]
+                "replace":"হ্ম"
             },
             {
                 "find":"hl",
-                "replace":"হ্ল",
-                "rules":
-                [
-                ]
+                "replace":"হ্ল"
             },
             {
                 "find":"h",
-                "replace":"হ",
-                "rules":
-                [
-                ]
+                "replace":"হ"
             },
             {
                 "find":"jjh",
-                "replace":"জ্ঝ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঝ"
             },
             {
                 "find":"jNG",
-                "replace":"জ্ঞ",
-                "rules":
-                [
-                ]
+                "replace":"জ্ঞ"
             },
             {
                 "find":"jh",
-                "replace":"ঝ",
-                "rules":
-                [
-                ]
+                "replace":"ঝ"
             },
             {
                 "find":"jj",
-                "replace":"জ্জ",
-                "rules":
-                [
-                ]
+                "replace":"জ্জ"
             },
             {
                 "find":"j",
-                "replace":"জ",
-                "rules":
-                [
-                ]
+                "replace":"জ"
             },
             {
                 "find":"J",
-                "replace":"জ",
-                "rules":
-                [
-                ]
+                "replace":"জ"
             },
             {
                 "find":"kkhN",
-                "replace":"ক্ষ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ণ"
             },
             {
                 "find":"kShN",
-                "replace":"ক্ষ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ণ"
             },
             {
                 "find":"kkhm",
-                "replace":"ক্ষ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ম"
             },
             {
                 "find":"kShm",
-                "replace":"ক্ষ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ম"
             },
             {
                 "find":"kxN",
-                "replace":"ক্ষ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ণ"
             },
             {
                 "find":"kxm",
-                "replace":"ক্ষ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ্ম"
             },
             {
                 "find":"kkh",
-                "replace":"ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ"
             },
             {
                 "find":"kSh",
-                "replace":"ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ"
             },
             {
                 "find":"ksh",
-                "replace":"কশ",
-                "rules":
-                [
-                ]
+                "replace":"কশ"
             },
             {
                 "find":"kx",
-                "replace":"ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ক্ষ"
             },
             {
                 "find":"kk",
-                "replace":"ক্ক",
-                "rules":
-                [
-                ]
+                "replace":"ক্ক"
             },
             {
                 "find":"kT",
-                "replace":"ক্ট",
-                "rules":
-                [
-                ]
+                "replace":"ক্ট"
             },
             {
                 "find":"kt",
-                "replace":"ক্ত",
-                "rules":
-                [
-                ]
+                "replace":"ক্ত"
             },
             {
                 "find":"kl",
-                "replace":"ক্ল",
-                "rules":
-                [
-                ]
+                "replace":"ক্ল"
             },
             {
                 "find":"ks",
-                "replace":"ক্স",
-                "rules":
-                [
-                ]
+                "replace":"ক্স"
             },
             {
                 "find":"kh",
-                "replace":"খ",
-                "rules":
-                [
-                ]
+                "replace":"খ"
             },
             {
                 "find":"k",
-                "replace":"ক",
-                "rules":
-                [
-                ]
+                "replace":"ক"
             },
             {
                 "find":"lbh",
-                "replace":"ল্ভ",
-                "rules":
-                [
-                ]
+                "replace":"ল্ভ"
             },
             {
                 "find":"ldh",
-                "replace":"ল্ধ",
-                "rules":
-                [
-                ]
+                "replace":"ল্ধ"
             },
             {
                 "find":"lkh",
-                "replace":"লখ",
-                "rules":
-                [
-                ]
+                "replace":"লখ"
             },
             {
                 "find":"lgh",
-                "replace":"লঘ",
-                "rules":
-                [
-                ]
+                "replace":"লঘ"
             },
             {
                 "find":"lph",
-                "replace":"লফ",
-                "rules":
-                [
-                ]
+                "replace":"লফ"
             },
             {
                 "find":"lk",
-                "replace":"ল্ক",
-                "rules":
-                [
-                ]
+                "replace":"ল্ক"
             },
             {
                 "find":"lg",
-                "replace":"ল্গ",
-                "rules":
-                [
-                ]
+                "replace":"ল্গ"
             },
             {
                 "find":"lT",
-                "replace":"ল্ট",
-                "rules":
-                [
-                ]
+                "replace":"ল্ট"
             },
             {
                 "find":"lD",
-                "replace":"ল্ড",
-                "rules":
-                [
-                ]
+                "replace":"ল্ড"
             },
             {
                 "find":"lp",
-                "replace":"ল্প",
-                "rules":
-                [
-                ]
+                "replace":"ল্প"
             },
             {
                 "find":"lv",
-                "replace":"ল্ভ",
-                "rules":
-                [
-                ]
+                "replace":"ল্ভ"
             },
             {
                 "find":"lm",
-                "replace":"ল্ম",
-                "rules":
-                [
-                ]
+                "replace":"ল্ম"
             },
             {
                 "find":"ll",
-                "replace":"ল্ল",
-                "rules":
-                [
-                ]
+                "replace":"ল্ল"
             },
             {
                 "find":"lb",
-                "replace":"ল্ব",
-                "rules":
-                [
-                ]
+                "replace":"ল্ব"
             },
             {
                 "find":"l",
-                "replace":"ল",
-                "rules":
-                [
-                ]
+                "replace":"ল"
             },
             {
                 "find":"mth",
-                "replace":"ম্থ",
-                "rules":
-                [
-                ]
+                "replace":"ম্থ"
             },
             {
                 "find":"mph",
-                "replace":"ম্ফ",
-                "rules":
-                [
-                ]
+                "replace":"ম্ফ"
             },
             {
                 "find":"mbh",
-                "replace":"ম্ভ",
-                "rules":
-                [
-                ]
+                "replace":"ম্ভ"
             },
             {
                 "find":"mpl",
-                "replace":"মপ্ল",
-                "rules":
-                [
-                ]
+                "replace":"মপ্ল"
             },
             {
                 "find":"mn",
-                "replace":"ম্ন",
-                "rules":
-                [
-                ]
+                "replace":"ম্ন"
             },
             {
                 "find":"mp",
-                "replace":"ম্প",
-                "rules":
-                [
-                ]
+                "replace":"ম্প"
             },
             {
                 "find":"mv",
-                "replace":"ম্ভ",
-                "rules":
-                [
-                ]
+                "replace":"ম্ভ"
             },
             {
                 "find":"mm",
-                "replace":"ম্ম",
-                "rules":
-                [
-                ]
+                "replace":"ম্ম"
             },
             {
                 "find":"ml",
-                "replace":"ম্ল",
-                "rules":
-                [
-                ]
+                "replace":"ম্ল"
             },
             {
                 "find":"mb",
-                "replace":"ম্ব",
-                "rules":
-                [
-                ]
+                "replace":"ম্ব"
             },
             {
                 "find":"mf",
-                "replace":"ম্ফ",
-                "rules":
-                [
-                ]
+                "replace":"ম্ফ"
             },
             {
                 "find":"m",
-                "replace":"ম",
-                "rules":
-                [
-                ]
+                "replace":"ম"
             },
             {
                 "find":"0",
-                "replace":"০",
-                "rules":
-                [
-                ]
+                "replace":"০"
             },
             {
                 "find":"1",
-                "replace":"১",
-                "rules":
-                [
-                ]
+                "replace":"১"
             },
             {
                 "find":"2",
-                "replace":"২",
-                "rules":
-                [
-                ]
+                "replace":"২"
             },
             {
                 "find":"3",
-                "replace":"৩",
-                "rules":
-                [
-                ]
+                "replace":"৩"
             },
             {
                 "find":"4",
-                "replace":"৪",
-                "rules":
-                [
-                ]
+                "replace":"৪"
             },
             {
                 "find":"5",
-                "replace":"৫",
-                "rules":
-                [
-                ]
+                "replace":"৫"
             },
             {
                 "find":"6",
-                "replace":"৬",
-                "rules":
-                [
-                ]
+                "replace":"৬"
             },
             {
                 "find":"7",
-                "replace":"৭",
-                "rules":
-                [
-                ]
+                "replace":"৭"
             },
             {
                 "find":"8",
-                "replace":"৮",
-                "rules":
-                [
-                ]
+                "replace":"৮"
             },
             {
                 "find":"9",
-                "replace":"৯",
-                "rules":
-                [
-                ]
+                "replace":"৯"
             },
             {
                 "find":"NgkSh",
-                "replace":"ঙ্ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ক্ষ"
             },
             {
                 "find":"Ngkkh",
-                "replace":"ঙ্ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ক্ষ"
             },
             {
                 "find":"NGch",
-                "replace":"ঞ্ছ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্ছ"
             },
             {
                 "find":"Nggh",
-                "replace":"ঙ্ঘ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ঘ"
             },
             {
                 "find":"Ngkh",
-                "replace":"ঙ্খ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্খ"
             },
             {
                 "find":"NGjh",
-                "replace":"ঞ্ঝ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্ঝ"
             },
             {
                 "find":"ngOU",
-                "replace":"ঙ্গৌ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গৌ"
             },
             {
                 "find":"ngOI",
-                "replace":"ঙ্গৈ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গৈ"
             },
             {
                 "find":"Ngkx",
-                "replace":"ঙ্ক্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ক্ষ"
             },
             {
                 "find":"NGc",
-                "replace":"ঞ্চ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্চ"
             },
             {
                 "find":"nch",
-                "replace":"ঞ্ছ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্ছ"
             },
             {
                 "find":"njh",
-                "replace":"ঞ্ঝ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্ঝ"
             },
             {
                 "find":"ngh",
-                "replace":"ঙ্ঘ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ঘ"
             },
             {
                 "find":"Ngk",
-                "replace":"ঙ্ক",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ক"
             },
             {
                 "find":"Ngx",
-                "replace":"ঙ্ষ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ষ"
             },
             {
                 "find":"Ngg",
-                "replace":"ঙ্গ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গ"
             },
             {
                 "find":"Ngm",
-                "replace":"ঙ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ম"
             },
             {
                 "find":"NGj",
-                "replace":"ঞ্জ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্জ"
             },
             {
                 "find":"ndh",
-                "replace":"ন্ধ",
-                "rules":
-                [
-                ]
+                "replace":"ন্ধ"
             },
             {
                 "find":"nTh",
-                "replace":"ন্ঠ",
-                "rules":
-                [
-                ]
+                "replace":"ন্ঠ"
             },
             {
                 "find":"NTh",
-                "replace":"ণ্ঠ",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ঠ"
             },
             {
                 "find":"nth",
-                "replace":"ন্থ",
-                "rules":
-                [
-                ]
+                "replace":"ন্থ"
             },
             {
                 "find":"nkh",
-                "replace":"ঙ্খ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্খ"
             },
             {
                 "find":"ngo",
-                "replace":"ঙ্গ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গ"
             },
             {
                 "find":"nga",
-                "replace":"ঙ্গা",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গা"
             },
             {
                 "find":"ngi",
-                "replace":"ঙ্গি",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গি"
             },
             {
                 "find":"ngI",
-                "replace":"ঙ্গী",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গী"
             },
             {
                 "find":"ngu",
-                "replace":"ঙ্গু",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গু"
             },
             {
                 "find":"ngU",
-                "replace":"ঙ্গূ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গূ"
             },
             {
                 "find":"nge",
-                "replace":"ঙ্গে",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গে"
             },
             {
                 "find":"ngO",
-                "replace":"ঙ্গো",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্গো"
             },
             {
                 "find":"NDh",
-                "replace":"ণ্ঢ",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ঢ"
             },
             {
                 "find":"nsh",
-                "replace":"নশ",
-                "rules":
-                [
-                ]
+                "replace":"নশ"
             },
             {
                 "find":"Ngr",
-                "replace":"ঙর",
-                "rules":
-                [
-                ]
+                "replace":"ঙর"
             },
             {
                 "find":"NGr",
-                "replace":"ঞর",
-                "rules":
-                [
-                ]
+                "replace":"ঞর"
             },
             {
                 "find":"ngr",
-                "replace":"ংর",
-                "rules":
-                [
-                ]
+                "replace":"ংর"
             },
             {
                 "find":"nj",
-                "replace":"ঞ্জ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্জ"
             },
             {
                 "find":"Ng",
-                "replace":"ঙ",
-                "rules":
-                [
-                ]
+                "replace":"ঙ"
             },
             {
                 "find":"NG",
-                "replace":"ঞ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ"
             },
             {
                 "find":"nk",
-                "replace":"ঙ্ক",
-                "rules":
-                [
-                ]
+                "replace":"ঙ্ক"
             },
             {
                 "find":"ng",
-                "replace":"ং",
-                "rules":
-                [
-                ]
+                "replace":"ং"
             },
             {
                 "find":"nn",
-                "replace":"ন্ন",
-                "rules":
-                [
-                ]
+                "replace":"ন্ন"
             },
             {
                 "find":"NN",
-                "replace":"ণ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ণ"
             },
             {
                 "find":"Nn",
-                "replace":"ণ্ন",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ন"
             },
             {
                 "find":"nm",
-                "replace":"ন্ম",
-                "rules":
-                [
-                ]
+                "replace":"ন্ম"
             },
             {
                 "find":"Nm",
-                "replace":"ণ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ম"
             },
             {
                 "find":"nd",
-                "replace":"ন্দ",
-                "rules":
-                [
-                ]
+                "replace":"ন্দ"
             },
             {
                 "find":"nT",
-                "replace":"ন্ট",
-                "rules":
-                [
-                ]
+                "replace":"ন্ট"
             },
             {
                 "find":"NT",
-                "replace":"ণ্ট",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ট"
             },
             {
                 "find":"nD",
-                "replace":"ন্ড",
-                "rules":
-                [
-                ]
+                "replace":"ন্ড"
             },
             {
                 "find":"ND",
-                "replace":"ণ্ড",
-                "rules":
-                [
-                ]
+                "replace":"ণ্ড"
             },
             {
                 "find":"nt",
-                "replace":"ন্ত",
-                "rules":
-                [
-                ]
+                "replace":"ন্ত"
             },
             {
                 "find":"ns",
-                "replace":"ন্স",
-                "rules":
-                [
-                ]
+                "replace":"ন্স"
             },
             {
                 "find":"nc",
-                "replace":"ঞ্চ",
-                "rules":
-                [
-                ]
+                "replace":"ঞ্চ"
             },
             {
                 "find":"n",
-                "replace":"ন",
-                "rules":
-                [
-                ]
+                "replace":"ন"
             },
             {
                 "find":"N",
-                "replace":"ণ",
-                "rules":
-                [
-                ]
+                "replace":"ণ"
             },
             {
                 "find":"OI`",
-                "replace":"ৈ",
-                "rules":
-                [
-                ]
+                "replace":"ৈ"
             },
             {
                 "find":"OU`",
-                "replace":"ৌ",
-                "rules":
-                [
-                ]
+                "replace":"ৌ"
             },
             {
                 "find":"O`",
-                "replace":"ো",
-                "rules":
-                [
-                ]
+                "replace":"ো"
             },
             {
                 "find":"OI",
@@ -1425,9 +901,8 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             }
                         ],
                         "replace":"ঐ"
@@ -1438,8 +913,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ঐ"
@@ -1456,9 +930,8 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             }
                         ],
                         "replace":"ঔ"
@@ -1469,8 +942,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ঔ"
@@ -1487,9 +959,8 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             }
                         ],
                         "replace":"ও"
@@ -1500,8 +971,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ও"
@@ -1510,87 +980,51 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"phl",
-                "replace":"ফ্ল",
-                "rules":
-                [
-                ]
+                "replace":"ফ্ল"
             },
             {
                 "find":"pT",
-                "replace":"প্ট",
-                "rules":
-                [
-                ]
+                "replace":"প্ট"
             },
             {
                 "find":"pt",
-                "replace":"প্ত",
-                "rules":
-                [
-                ]
+                "replace":"প্ত"
             },
             {
                 "find":"pn",
-                "replace":"প্ন",
-                "rules":
-                [
-                ]
+                "replace":"প্ন"
             },
             {
                 "find":"pp",
-                "replace":"প্প",
-                "rules":
-                [
-                ]
+                "replace":"প্প"
             },
             {
                 "find":"pl",
-                "replace":"প্ল",
-                "rules":
-                [
-                ]
+                "replace":"প্ল"
             },
             {
                 "find":"ps",
-                "replace":"প্স",
-                "rules":
-                [
-                ]
+                "replace":"প্স"
             },
             {
                 "find":"ph",
-                "replace":"ফ",
-                "rules":
-                [
-                ]
+                "replace":"ফ"
             },
             {
                 "find":"fl",
-                "replace":"ফ্ল",
-                "rules":
-                [
-                ]
+                "replace":"ফ্ল"
             },
             {
                 "find":"f",
-                "replace":"ফ",
-                "rules":
-                [
-                ]
+                "replace":"ফ"
             },
             {
                 "find":"p",
-                "replace":"প",
-                "rules":
-                [
-                ]
+                "replace":"প"
             },
             {
                 "find":"rri`",
-                "replace":"ৃ",
-                "rules":
-                [
-                ]
+                "replace":"ৃ"
             },
             {
                 "find":"rri",
@@ -1602,9 +1036,8 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             }
                         ],
                         "replace":"ঋ"
@@ -1615,8 +1048,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ঋ"
@@ -1625,17 +1057,11 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"rrZ",
-                "replace":"রর‍্য",
-                "rules":
-                [
-                ]
+                "replace":"রর‍্য"
             },
             {
                 "find":"rry",
-                "replace":"রর‍্য",
-                "rules":
-                [
-                ]
+                "replace":"রর‍্য"
             },
             {
                 "find":"rZ",
@@ -1648,32 +1074,27 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"consonant",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             }
                         ],
                         "replace":"্র্য"
@@ -1691,32 +1112,27 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"consonant",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             }
                         ],
                         "replace":"্র্য"
@@ -1733,27 +1149,23 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"vowel",
-                                "value":"",
-                                "negative":true
+                                "scope":"!vowel",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"suffix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":true
+                                "value":""
                             }
                         ],
                         "replace":"র্"
@@ -1764,14 +1176,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"consonant",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             }
                         ],
                         "replace":"্রর"
@@ -1780,24 +1190,15 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"Rg",
-                "replace":"ড়্গ",
-                "rules":
-                [
-                ]
+                "replace":"ড়্গ"
             },
             {
                 "find":"Rh",
-                "replace":"ঢ়",
-                "rules":
-                [
-                ]
+                "replace":"ঢ়"
             },
             {
                 "find":"R",
-                "replace":"ড়",
-                "rules":
-                [
-                ]
+                "replace":"ড়"
             },
             {
                 "find":"r",
@@ -1810,38 +1211,32 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"consonant",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"Z",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"Z"
                             }
                         ],
                         "replace":"্র"
@@ -1850,276 +1245,159 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"shch",
-                "replace":"শ্ছ",
-                "rules":
-                [
-                ]
+                "replace":"শ্ছ"
             },
             {
                 "find":"ShTh",
-                "replace":"ষ্ঠ",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ঠ"
             },
             {
                 "find":"Shph",
-                "replace":"ষ্ফ",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ফ"
             },
             {
                 "find":"Sch",
-                "replace":"শ্ছ",
-                "rules":
-                [
-                ]
+                "replace":"শ্ছ"
             },
             {
                 "find":"skl",
-                "replace":"স্ক্ল",
-                "rules":
-                [
-                ]
+                "replace":"স্ক্ল"
             },
             {
                 "find":"skh",
-                "replace":"স্খ",
-                "rules":
-                [
-                ]
+                "replace":"স্খ"
             },
             {
                 "find":"sth",
-                "replace":"স্থ",
-                "rules":
-                [
-                ]
+                "replace":"স্থ"
             },
             {
                 "find":"sph",
-                "replace":"স্ফ",
-                "rules":
-                [
-                ]
+                "replace":"স্ফ"
             },
             {
                 "find":"shc",
-                "replace":"শ্চ",
-                "rules":
-                [
-                ]
+                "replace":"শ্চ"
             },
             {
                 "find":"sht",
-                "replace":"শ্ত",
-                "rules":
-                [
-                ]
+                "replace":"শ্ত"
             },
             {
                 "find":"shn",
-                "replace":"শ্ন",
-                "rules":
-                [
-                ]
+                "replace":"শ্ন"
             },
             {
                 "find":"shm",
-                "replace":"শ্ম",
-                "rules":
-                [
-                ]
+                "replace":"শ্ম"
             },
             {
                 "find":"shl",
-                "replace":"শ্ল",
-                "rules":
-                [
-                ]
+                "replace":"শ্ল"
             },
             {
                 "find":"Shk",
-                "replace":"ষ্ক",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ক"
             },
             {
                 "find":"ShT",
-                "replace":"ষ্ট",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ট"
             },
             {
                 "find":"ShN",
-                "replace":"ষ্ণ",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ণ"
             },
             {
                 "find":"Shp",
-                "replace":"ষ্প",
-                "rules":
-                [
-                ]
+                "replace":"ষ্প"
             },
             {
                 "find":"Shf",
-                "replace":"ষ্ফ",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ফ"
             },
             {
                 "find":"Shm",
-                "replace":"ষ্ম",
-                "rules":
-                [
-                ]
+                "replace":"ষ্ম"
             },
             {
                 "find":"spl",
-                "replace":"স্প্ল",
-                "rules":
-                [
-                ]
+                "replace":"স্প্ল"
             },
             {
                 "find":"sk",
-                "replace":"স্ক",
-                "rules":
-                [
-                ]
+                "replace":"স্ক"
             },
             {
                 "find":"Sc",
-                "replace":"শ্চ",
-                "rules":
-                [
-                ]
+                "replace":"শ্চ"
             },
             {
                 "find":"sT",
-                "replace":"স্ট",
-                "rules":
-                [
-                ]
+                "replace":"স্ট"
             },
             {
                 "find":"st",
-                "replace":"স্ত",
-                "rules":
-                [
-                ]
+                "replace":"স্ত"
             },
             {
                 "find":"sn",
-                "replace":"স্ন",
-                "rules":
-                [
-                ]
+                "replace":"স্ন"
             },
             {
                 "find":"sp",
-                "replace":"স্প",
-                "rules":
-                [
-                ]
+                "replace":"স্প"
             },
             {
                 "find":"sf",
-                "replace":"স্ফ",
-                "rules":
-                [
-                ]
+                "replace":"স্ফ"
             },
             {
                 "find":"sm",
-                "replace":"স্ম",
-                "rules":
-                [
-                ]
+                "replace":"স্ম"
             },
             {
                 "find":"sl",
-                "replace":"স্ল",
-                "rules":
-                [
-                ]
+                "replace":"স্ল"
             },
             {
                 "find":"sh",
-                "replace":"শ",
-                "rules":
-                [
-                ]
+                "replace":"শ"
             },
             {
                 "find":"Sc",
-                "replace":"শ্চ",
-                "rules":
-                [
-                ]
+                "replace":"শ্চ"
             },
             {
                 "find":"St",
-                "replace":"শ্ত",
-                "rules":
-                [
-                ]
+                "replace":"শ্ত"
             },
             {
                 "find":"Sn",
-                "replace":"শ্ন",
-                "rules":
-                [
-                ]
+                "replace":"শ্ন"
             },
             {
                 "find":"Sm",
-                "replace":"শ্ম",
-                "rules":
-                [
-                ]
+                "replace":"শ্ম"
             },
             {
                 "find":"Sl",
-                "replace":"শ্ল",
-                "rules":
-                [
-                ]
+                "replace":"শ্ল"
             },
             {
                 "find":"Sh",
-                "replace":"ষ",
-                "rules":
-                [
-                ]
+                "replace":"ষ"
             },
             {
                 "find":"s",
-                "replace":"স",
-                "rules":
-                [
-                ]
+                "replace":"স"
             },
             {
                 "find":"S",
-                "replace":"শ",
-                "rules":
-                [
-                ]
+                "replace":"শ"
             },
             {
                 "find":"oo`",
-                "replace":"ু",
-                "rules":
-                [
-                ]
+                "replace":"ু"
             },
             {
                 "find":"oo",
@@ -2131,15 +1409,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -2150,14 +1426,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -2166,17 +1440,11 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"o`",
-                "replace":"",
-                "rules":
-                [
-                ]
+                "replace":""
             },
             {
                 "find":"oZ",
-                "replace":"অ্য",
-                "rules":
-                [
-                ]
+                "replace":"অ্য"
             },
             {
                 "find":"o",
@@ -2189,14 +1457,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"vowel",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"o",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"o"
                             }
                         ],
                         "replace":"ও"
@@ -2207,14 +1473,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"vowel",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"prefix",
                                 "scope":"exact",
-                                "value":"o",
-                                "negative":false
+                                "value":"o"
                             }
                         ],
                         "replace":"অ"
@@ -2225,8 +1489,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"অ"
@@ -2235,108 +1498,63 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"tth",
-                "replace":"ত্থ",
-                "rules":
-                [
-                ]
+                "replace":"ত্থ"
             },
             {
                 "find":"t``",
-                "replace":"ৎ",
-                "rules":
-                [
-                ]
+                "replace":"ৎ"
             },
             {
                 "find":"TT",
-                "replace":"ট্ট",
-                "rules":
-                [
-                ]
+                "replace":"ট্ট"
             },
             {
                 "find":"Tm",
-                "replace":"ট্ম",
-                "rules":
-                [
-                ]
+                "replace":"ট্ম"
             },
             {
                 "find":"Th",
-                "replace":"ঠ",
-                "rules":
-                [
-                ]
+                "replace":"ঠ"
             },
             {
                 "find":"tn",
-                "replace":"ত্ন",
-                "rules":
-                [
-                ]
+                "replace":"ত্ন"
             },
             {
                 "find":"tm",
-                "replace":"ত্ম",
-                "rules":
-                [
-                ]
+                "replace":"ত্ম"
             },
             {
                 "find":"th",
-                "replace":"থ",
-                "rules":
-                [
-                ]
+                "replace":"থ"
             },
             {
                 "find":"tt",
-                "replace":"ত্ত",
-                "rules":
-                [
-                ]
+                "replace":"ত্ত"
             },
             {
                 "find":"T",
-                "replace":"ট",
-                "rules":
-                [
-                ]
+                "replace":"ট"
             },
             {
                 "find":"t",
-                "replace":"ত",
-                "rules":
-                [
-                ]
+                "replace":"ত"
             },
             {
                 "find":"aZ",
-                "replace":"অ্যা",
-                "rules":
-                [
-                ]
+                "replace":"অ্যা"
             },
             {
                 "find":"AZ",
-                "replace":"অ্যা",
-                "rules":
-                [
-                ]
+                "replace":"অ্যা"
             },
             {
                 "find":"a`",
-                "replace":"া",
-                "rules":
-                [
-                ]
+                "replace":"া"
             },
             {
                 "find":"A`",
-                "replace":"া",
-                "rules":
-                [
-                ]
+                "replace":"া"
             },
             {
                 "find":"a",
@@ -2349,14 +1567,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"আ"
@@ -2366,21 +1582,18 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"a",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"a"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"য়া"
@@ -2391,14 +1604,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"exact",
-                                "value":"a",
-                                "negative":false
+                                "value":"a"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"আ"
@@ -2407,10 +1618,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"i`",
-                "replace":"ি",
-                "rules":
-                [
-                ]
+                "replace":"ি"
             },
             {
                 "find":"i",
@@ -2422,15 +1630,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ই"
@@ -2441,14 +1647,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ই"
@@ -2457,10 +1661,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"I`",
-                "replace":"ী",
-                "rules":
-                [
-                ]
+                "replace":"ী"
             },
             {
                 "find":"I",
@@ -2472,15 +1673,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -2491,14 +1690,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -2507,10 +1704,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"u`",
-                "replace":"ু",
-                "rules":
-                [
-                ]
+                "replace":"ু"
             },
             {
                 "find":"u",
@@ -2522,15 +1716,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -2541,14 +1733,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -2557,10 +1747,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"U`",
-                "replace":"ূ",
-                "rules":
-                [
-                ]
+                "replace":"ূ"
             },
             {
                 "find":"U",
@@ -2572,15 +1759,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঊ"
@@ -2591,14 +1776,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঊ"
@@ -2607,10 +1790,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"ee`",
-                "replace":"ী",
-                "rules":
-                [
-                ]
+                "replace":"ী"
             },
             {
                 "find":"ee",
@@ -2622,15 +1802,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -2641,14 +1819,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -2657,10 +1833,7 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"e`",
-                "replace":"ে",
-                "rules":
-                [
-                ]
+                "replace":"ে"
             },
             {
                 "find":"e",
@@ -2672,15 +1845,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"এ"
@@ -2691,14 +1862,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"এ"
@@ -2707,17 +1876,11 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"z",
-                "replace":"য",
-                "rules":
-                [
-                ]
+                "replace":"য"
             },
             {
                 "find":"Z",
-                "replace":"্য",
-                "rules":
-                [
-                ]
+                "replace":"্য"
             },
             {
                 "find":"y",
@@ -2729,15 +1892,13 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "value":"",
-                                "negative":true
+                                "scope":"!consonant",
+                                "value":""
                             },
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "value":"",
-                                "negative":true
+                                "scope":"!punctuation",
+                                "value":""
                             }
                         ],
                         "replace":"য়"
@@ -2748,8 +1909,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ইয়"
@@ -2758,17 +1918,11 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"Y",
-                "replace":"য়",
-                "rules":
-                [
-                ]
+                "replace":"য়"
             },
             {
                 "find":"q",
-                "replace":"ক",
-                "rules":
-                [
-                ]
+                "replace":"ক"
             },
             {
                 "find":"w",
@@ -2781,14 +1935,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             },
                             {
                                 "type":"suffix",
                                 "scope":"vowel",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"ওয়"
@@ -2799,8 +1951,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"consonant",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"্ব"
@@ -2818,8 +1969,7 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"punctuation",
-                                "value":"",
-                                "negative":false
+                                "value":""
                             }
                         ],
                         "replace":"এক্স"
@@ -2828,59 +1978,35 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":":`",
-                "replace":":",
-                "rules":
-                [
-                ]
+                "replace":":"
             },
             {
                 "find":":",
-                "replace":"ঃ",
-                "rules":
-                [
-                ]
+                "replace":"ঃ"
             },
             {
                 "find":"^`",
-                "replace":"^",
-                "rules":
-                [
-                ]
+                "replace":"^"
             },
             {
                 "find":"^",
-                "replace":"ঁ",
-                "rules":
-                [
-                ]
+                "replace":"ঁ"
             },
             {
                 "find":",,",
-                "replace":"্‌",
-                "rules":
-                [
-                ]
+                "replace":"্‌"
             },
             {
                 "find":",",
-                "replace":",",
-                "rules":
-                [
-                ]
+                "replace":","
             },
             {
                 "find":"$",
-                "replace":"৳",
-                "rules":
-                [
-                ]
+                "replace":"৳"
             },
             {
                 "find":"`",
-                "replace":"",
-                "rules":
-                [
-                ]
+                "replace":""
             }
         ],
         "vowel":"aeiou",

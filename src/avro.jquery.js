@@ -66,6 +66,10 @@
                 e.preventDefault();
             }
             
+            if(!methods.opt.bn) {
+                return;
+            }
+            
             // 32 - Space, 13 - Enter, 9 - Tab
             if(keycode === 32 || keycode === 13 || keycode ===9) {
                 methods.replace(target);
