@@ -33,10 +33,15 @@
         isMod : false,
         // http://unixpapa.com/js/key.html
         modifiers : [17, 18, 20, 144, 91, 92, 93, 224],
-        init : function(options) {
+        callback : null,
+        init : function(options, callback) {
 
             if(options) {
                 $.extend(methods.opt, options);
+            }
+            methods.callback = callback;
+            if(typeof methods.callback === 'function') {
+            	methods.callback(methods.opt.bn);
             }
             
             return this.each(function(){
@@ -75,6 +80,9 @@
             
             if(e.ctrlKey && keycode === ($.browser.mozilla ? 109 : 13)) {
                 methods.opt.bn = !methods.opt.bn;
+                if(typeof methods.callback === 'function') {
+                	methods.callback(methods.opt.bn);
+                }
                 methods.last = null;
                 e.preventDefault();
             }
