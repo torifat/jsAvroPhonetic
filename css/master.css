@@ -69,3 +69,59 @@ td, th {
 	padding: 0 12px;
 	background: #333;
 }
+code, pre {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 90%;
+	text-shadow: 0 1px 0 white;
+}
+code {
+	color:white;
+	background:#F72;
+	padding:.4em .4em .2em;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+	border-radius:5px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
+}
+pre {
+	padding:.5em .8em;
+	border:.1px solid #ccc;
+	border-color:#bbb #ddd #ddd #bbb;
+	
+	background-color:#ffecd0;
+	background-size: 3em 3em;
+	
+	background-origin: content-box;
+	background-image: linear-gradient(rgba(255, 255, 255, .3) 50%, transparent 50%, transparent);
+	
+	line-height:1.5em;
+	margin-bottom:1em;
+	overflow:auto;
+	
+	box-shadow:.1px 1px 3px rgba(0,0,0,.3) inset;
+}
+acronym, abbr {
+	border-bottom: 1px dashed #999;
+}
+blockquote {
+	margin: 15px 0 0 10px;
+	padding: .3em 1em .3em 2em;
+	border-left: .7em double rgba(255, 255, 255, .3);
+	background: #ffecd0;
+}
+
+blockquote:before {
+	content: '\275D';
+	float: left;
+	display: block;
+	margin-left: -.8em;
+	margin-top: -.25em;
+	color: #f72;
+	font-size: 400%;
+	line-height: 1;
+}
+
+blockquote cite {
+	margin: 5px 0 0;
+	display: block;
+}
