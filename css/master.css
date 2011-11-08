@@ -12,7 +12,8 @@ body {
     background-color:#282828;
     background-size:16px 16px;
     text-shadow: 1px 1px rgba(238, 238, 238, 0.25);
-	font: 20px/40px 'Open Sans Condensed', sans-serif;
+    font: 20px/40px 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
 }
 .wrap {
 	width: 960px;
