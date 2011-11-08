@@ -41,94 +41,95 @@ OmicronLab.Avro.Phonetic = {
 				end = cur + pattern.find.length;
 				if(end <= fixed.length && fixed.substring(start, end) == pattern.find) {
 					prev = start - 1;
-					for(var j = 0; j < pattern.rules.length; ++j) {
-						var rule = pattern.rules[j];
-						var replace = true;
+					if(pattern.rules) {
+					    for(var j = 0; j < pattern.rules.length; ++j) {
+    						var rule = pattern.rules[j];
+    						var replace = true;
 						
-						var chk = 0;
+    						var chk = 0;
 						
-						for(var k=0; k < rule.matches.length; ++k) {
-							var match = rule.matches[k];
+    						for(var k=0; k < rule.matches.length; ++k) {
+    							var match = rule.matches[k];
 							
-							if(match.type === "suffix") {
-								chk = end;
-							} 
-							// Prefix
-							else {
-								chk = prev;
-							}
+    							if(match.type === "suffix") {
+    								chk = end;
+    							} 
+    							// Prefix
+    							else {
+    								chk = prev;
+    							}
 							
-							// Beginning
-							if(match.scope === "punctuation") {
-								if(
-									! (
-										((chk < 0) && (match.type === "prefix")) || 
-										((chk >= fixed.length) && (match.type === "suffix")) || 
-										this.isPunctuation(fixed.charAt(chk))
-									) ^ match.negative
-								) {
-									replace = false;
-									break;
-								}
-							}
-							// Vowel
-							else if(match.scope === "vowel") {
-								if(
-									! (
-										(
-											(chk >= 0 && (match.type === "prefix")) || 
-											(chk < fixed.length && (match.type === "suffix"))
-										) && 
-										this.isVowel(fixed.charAt(chk))
-									) ^ match.negative
-								) {
-									replace = false;
-									break;
-								}
-							}
-							// Consonant
-							else if(match.scope === "consonant") {
-								if(
-									! (
-										(
-											(chk >= 0 && (match.type === "prefix")) || 
-											(chk < fixed.length && match.type === ("suffix"))
-										) && 
-										this.isConsonant(fixed.charAt(chk))
-									) ^ match.negative
-								) {
-									replace = false;
-									break;
-								}
-							}
-							// Exact
-							else if(match.scope === "exact") {
-								var s, e;
-								if(match.type === "suffix") {
-									s = end;
-									e = end + match.value.length;
-								} 
-								// Prefix
-								else {
-									s = start - match.value.length;
-									e = start;
-								}
-								if(!this.isExact(match.value, fixed, s, e, match.negative)) {
-									replace = false;
-									break;
-								}
-							}
-						}
+    							// Beginning
+    							if(match.scope === "punctuation") {
+    								if(
+    									! (
+    										((chk < 0) && (match.type === "prefix")) || 
+    										((chk >= fixed.length) && (match.type === "suffix")) || 
+    										this.isPunctuation(fixed.charAt(chk))
+    									) ^ match.negative
+    								) {
+    									replace = false;
+    									break;
+    								}
+    							}
+    							// Vowel
+    							else if(match.scope === "vowel") {
+    								if(
+    									! (
+    										(
+    											(chk >= 0 && (match.type === "prefix")) || 
+    											(chk < fixed.length && (match.type === "suffix"))
+    										) && 
+    										this.isVowel(fixed.charAt(chk))
+    									) ^ match.negative
+    								) {
+    									replace = false;
+    									break;
+    								}
+    							}
+    							// Consonant
+    							else if(match.scope === "consonant") {
+    								if(
+    									! (
+    										(
+    											(chk >= 0 && (match.type === "prefix")) || 
+    											(chk < fixed.length && match.type === ("suffix"))
+    										) && 
+    										this.isConsonant(fixed.charAt(chk))
+    									) ^ match.negative
+    								) {
+    									replace = false;
+    									break;
+    								}
+    							}
+    							// Exact
+    							else if(match.scope === "exact") {
+    								var s, e;
+    								if(match.type === "suffix") {
+    									s = end;
+    									e = end + match.value.length;
+    								} 
+    								// Prefix
+    								else {
+    									s = start - match.value.length;
+    									e = start;
+    								}
+    								if(!this.isExact(match.value, fixed, s, e, match.negative)) {
+    									replace = false;
+    									break;
+    								}
+    							}
+    						}
 						
-						if(replace) {
-							output += rule.replace;
-							cur = end - 1;
-							matched = true;
-							break;
-						}
+    						if(replace) {
+    							output += rule.replace;
+    							cur = end - 1;
+    							matched = true;
+    							break;
+    						}
 						
+    					}
 					}
-	
 					if(matched == true) break;
 					
 					// Default
