@@ -41,7 +41,7 @@ OmicronLab.Avro.Phonetic = {
 				end = cur + pattern.find.length;
 				if(end <= fixed.length && fixed.substring(start, end) == pattern.find) {
 					prev = start - 1;
-					if(pattern.rules) {
+					if(typeof pattern.rules !== 'undefined') {
 					    for(var j = 0; j < pattern.rules.length; ++j) {
     						var rule = pattern.rules[j];
     						var replace = true;
@@ -59,9 +59,18 @@ OmicronLab.Avro.Phonetic = {
     								chk = prev;
     							}
     							
+    							// Handle Negative
+    							if(typeof match.negative === 'undefined') {
+    							    match.negative = false;
+    							    if(match.scope.charAt(0) === '!') {
+        							    match.negative = true;
+        							    match.scope = match.scope.substring(1);
+        							}
+    							}
+    							
     							// Handle empty value
     							if(typeof match.value === 'undefined') match.value = '';
-							
+    							
     							// Beginning
     							if(match.scope === "punctuation") {
     								if(
@@ -897,8 +906,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             }
                         ],
                         "replace":"ঐ"
@@ -908,8 +916,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"ঐ"
@@ -926,8 +933,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             }
                         ],
                         "replace":"ঔ"
@@ -937,8 +943,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"ঔ"
@@ -955,8 +960,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             }
                         ],
                         "replace":"ও"
@@ -966,8 +970,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"ও"
@@ -1032,8 +1035,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             }
                         ],
                         "replace":"ঋ"
@@ -1043,8 +1045,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"ঋ"
@@ -1069,32 +1070,27 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":false
+                                "scope":"consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             }
                         ],
                         "replace":"্র্য"
@@ -1111,32 +1107,27 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":false
+                                "scope":"consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             }
                         ],
                         "replace":"্র্য"
@@ -1153,24 +1144,20 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"vowel",
-                                "negative":true
+                                "scope":"!vowel"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"punctuation",
-                                "negative":true
+                                "scope":"!punctuation"
                             }
                         ],
                         "replace":"র্"
@@ -1180,14 +1167,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":false
+                                "scope":"consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             }
                         ],
                         "replace":"্রর"
@@ -1216,38 +1201,32 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":false
+                                "scope":"consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"r",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"r"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"y",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"y"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"w",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"w"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"x",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"x"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"Z",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"Z"
                             }
                         ],
                         "replace":"্র"
@@ -1420,14 +1399,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -1437,14 +1414,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -1469,14 +1444,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"vowel",
-                                "negative":false
+                                "scope":"vowel"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"o",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"o"
                             }
                         ],
                         "replace":"ও"
@@ -1486,14 +1459,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"vowel",
-                                "negative":false
+                                "scope":"vowel"
                             },
                             {
                                 "type":"prefix",
                                 "scope":"exact",
-                                "value":"o",
-                                "negative":false
+                                "value":"o"
                             }
                         ],
                         "replace":"অ"
@@ -1503,8 +1474,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"অ"
@@ -1581,14 +1551,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"আ"
@@ -1598,20 +1566,17 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"exact",
-                                "value":"a",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"a"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"য়া"
@@ -1622,14 +1587,12 @@ OmicronLab.Avro.Phonetic = {
                             {
                                 "type":"prefix",
                                 "scope":"exact",
-                                "value":"a",
-                                "negative":false
+                                "value":"a"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"আ"
@@ -1650,14 +1613,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ই"
@@ -1667,14 +1628,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ই"
@@ -1695,14 +1654,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -1712,14 +1669,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -1740,14 +1695,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -1757,14 +1710,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"উ"
@@ -1785,14 +1736,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঊ"
@@ -1802,14 +1751,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঊ"
@@ -1830,14 +1777,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -1847,14 +1792,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"ঈ"
@@ -1875,14 +1818,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"এ"
@@ -1892,14 +1833,12 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"exact",
-                                "value":"`",
-                                "negative":true
+                                "scope":"!exact",
+                                "value":"`"
                             }
                         ],
                         "replace":"এ"
@@ -1924,13 +1863,11 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":true
+                                "scope":"!consonant"
                             },
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":true
+                                "scope":"!punctuation"
                             }
                         ],
                         "replace":"য়"
@@ -1940,8 +1877,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"ইয়"
@@ -1966,13 +1902,11 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             },
                             {
                                 "type":"suffix",
-                                "scope":"vowel",
-                                "negative":false
+                                "scope":"vowel"
                             }
                         ],
                         "replace":"ওয়"
@@ -1982,8 +1916,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"consonant",
-                                "negative":false
+                                "scope":"consonant"
                             }
                         ],
                         "replace":"্ব"
@@ -2000,8 +1933,7 @@ OmicronLab.Avro.Phonetic = {
                         [
                             {
                                 "type":"prefix",
-                                "scope":"punctuation",
-                                "negative":false
+                                "scope":"punctuation"
                             }
                         ],
                         "replace":"এক্স"
