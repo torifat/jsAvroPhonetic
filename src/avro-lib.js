@@ -59,10 +59,10 @@ OmicronLab.Avro.Phonetic = {
     								chk = prev;
     							}
     							
-    							// Make match.negative
-    							match.negative = false;
+    							// Make match.negative [reverse]
+    							match.negative = true;
     							if(match.scope.charAt(0) === '!') {
-    							    match.negative = true;
+    							    match.negative = false;
     							    match.scope = match.scope.substring(1);
     							}
     							
