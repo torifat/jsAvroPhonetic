@@ -11,7 +11,6 @@ body {
       radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
     background-color:#282828;
     background-size:16px 16px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 1.0);
     font: 15px/30px 'Nova Slim', cursive, sans-serif;
 }
 img {
@@ -24,6 +23,7 @@ img {
 .wrapper {
 	padding: 40px 20px;
 	position: relative;
+	text-shadow: 1px 1px rgba(0, 0, 0, 1.0);
 }
 .github-ribbon {
 	position: fixed;
@@ -85,23 +85,6 @@ code {
 	border-radius:5px;
 	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
 }
-pre {
-	padding:.5em .8em;
-	border:.1px solid #ccc;
-	border-color:#bbb #ddd #ddd #bbb;
-	
-	background-color:#ffecd0;
-	background-size: 3em 3em;
-	
-	background-origin: content-box;
-	background-image: linear-gradient(rgba(255, 255, 255, .3) 50%, transparent 50%, transparent);
-	
-	line-height:1.5em;
-	margin-bottom:1em;
-	overflow:auto;
-	
-	box-shadow:.1px 1px 3px rgba(0,0,0,.3) inset;
-}
 acronym, abbr {
 	border-bottom: 1px dashed #999;
 }
@@ -156,12 +139,9 @@ a.download:hover {
 a.download > strong {
 	display: block;
 	margin: .1em 0;
-	font-size: 180%;
+	font-size: 120%;
 	white-space: nowrap;
 	color: #f72;
-}
-a.download:hover:after {
-	display: none;
 }
 .lft {
 	float: left;
@@ -178,4 +158,21 @@ a.download:hover:after {
 }
 .leftHalf {
 	width: 567px;
+}
+.gist {
+	text-shadow: none;
+}
+ol, ul {
+	list-style-position: inside;
+}
+a {
+	color: #f72;
+}
+a:hover {
+	text-decoration: none;
+}
+.share {
+	position: fixed;
+	left: 20px;
+	top:  20px;
 }

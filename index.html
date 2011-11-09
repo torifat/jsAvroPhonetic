@@ -15,7 +15,7 @@
 	
 	<div class="wrap">
 		<div class="wrapper">
-			<a href="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.min.js" class="download" title="Click to download">Only <strong>4.23KB</strong> gzipped</a>
+			<a href="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro-1.0-beta.min.js" class="download" title="Click to download"><br /><strong>Download</strong></a>
 		
 			<h1>Official jQuery Plugin for Avro Phonetic</h1>
 			<p class="right">Various efforts have been made to create a javascript version of <span class="bigger">Avro Phonetic</span>, but none of them is <span class="bigger">100% compatible</span> to Avro Keyboard’s phonetic scheme. So we have created this official version and made it a <span class="bigger">jQuery Plugin</span> so that people can easily integrate <span class="bigger">Bangla typing</span> facility to their sites without depending on a native IME.</p>
@@ -26,7 +26,7 @@
 					<h2>Demo</h2>
 					<p>
 						<textarea class="bangla"></textarea>
-						<small><code>NOTE</code> &nbsp;Press Ctrl+M to switch keyboard. Hit Space, Enter or Tab to transliterate.</small>
+						<small><code>NOTE</code> &nbsp;Press Ctrl+M to switch to <span class="mode"></span>. Hit Space, Enter or Tab to transliterate.</small>
 					</p>
 				</div>
 				<div class="rght half">
@@ -69,17 +69,55 @@
 				<div class="cls"></div>
 			</div>
 			
-	        <h2>How to use</h2>
+	        <h2>Snippet</h2>
+	        <p>
+		        <code>Use</code> Enable Avro Phonetic in all textboxes &amp; textareas
+		        <script src="https://gist.github.com/1352135.js?file=default.html"></script>
+		        <code>Use</code> Enable Avro Phonetic in all textboxes &amp; textareas with default mode set to English
+		        <script src="https://gist.github.com/1352158.js?file=params.html"></script>
+		        <code>Use</code> Enable Avro Phonetic in all textboxes &amp; textareas with a callback function to get keyboard mode changing notification
+		        <script src="https://gist.github.com/1352158.js?file=callback.html"></script>
+	        </p>
 	        
+	        <h2>Contribute</h2>
+	        <p>
+		        <ol>
+		        	<li>Fork the <a href="https://github.com/torifat/jsAvroPhonetic/">github repo</a></li>
+		        	<li><a href="https://github.com/torifat/jsAvroPhonetic/issues">Report issues</a></li>
+		        </ol>
+	        </p>
 		</div>
 	</div>
 	
-	<script src="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.min.js" type="text/javascript" charset="utf-8"></script>
+	<div class="share">
+		<div><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div>
+		<div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-font="trebuchet ms"></div>
+	</div>
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) {return;}
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=142556639174692";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+	<script src="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro-1.0-beta.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(function(){
-			$('textarea').avro({'bn':true}, function(s){
-				//console.log(s);
+			$('textarea').avro({'bn':true}, function(isBangla) {
+				if(isBangla) {
+					$('.mode').text('English');
+				} else {
+					$('.mode').text('Bangla');
+				}
 			});
+		});
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		$(function(){
+			$('a.download').hover(function(){$(this).html("Only <strong>4.23KB</strong> gzipped");}, function(){$(this).html("<br /><strong>Download</strong>");});
 		});
 	</script>
 </body>
