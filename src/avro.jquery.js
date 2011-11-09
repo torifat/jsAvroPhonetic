@@ -42,7 +42,7 @@
             }
             
             return this.each(function() {
-                $(this).bind('keyup.avro', methods.keyup);
+                $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('keypress.avro', methods.keypress);
             });
 
@@ -69,10 +69,10 @@
             }
             
         },
-        keyup : function(e) {
+        keydown : function(e) {
             
             var keycode = e.keyCode || e.which || e.charCode;
-            if(keycode === 77 && e.ctrlKey === true && e.altKey === false && e.shiftKey === false) {
+            if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 methods.opt.bn = !methods.opt.bn;
                 if(typeof methods.callback === 'function') {
                 	methods.callback(methods.opt.bn);
