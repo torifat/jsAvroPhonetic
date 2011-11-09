@@ -41,14 +41,15 @@
             	callback(methods.opt.bn);
             }
             
-            return this.each(function(){
+            return this.each(function() {
+                $(this).bind('keyup.avro', methods.keyup);
                 $(this).bind('keypress.avro', methods.keypress);
             });
 
         },
         destroy : function() {
 
-            return this.each(function(){
+            return this.each(function() {
                 $(this).unbind('.avro');
             })
 
@@ -58,14 +59,6 @@
             var keycode = e.keyCode || e.which || e.charCode;
             var target = e.currentTarget || e.target || e.srcElement;
             
-            if(e.ctrlKey && keycode === ($.browser.mozilla ? 109 : 13)) {
-                methods.opt.bn = !methods.opt.bn;
-                if(typeof methods.callback === 'function') {
-                	methods.callback(methods.opt.bn);
-                }
-                e.preventDefault();
-            }
-            
             if(!methods.opt.bn) {
                 return;
             }
@@ -73,6 +66,17 @@
             // 32 - Space, 13 - Enter, 9 - Tab
             if(keycode === 32 || keycode === 13 || keycode ===9) {
                 methods.replace(target);
+            }
+            
+        },
+        keyup : function(e) {
+            
+            if(e.key === 'ctrl+m') {
+                methods.opt.bn = !methods.opt.bn;
+                if(typeof methods.callback === 'function') {
+                	methods.callback(methods.opt.bn);
+                }
+                e.preventDefault();
             }
             
         },
