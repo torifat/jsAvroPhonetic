@@ -161,6 +161,7 @@ a.download > strong {
 }
 .gist {
 	text-shadow: none;
+	line-height: 20px;
 }
 ol, ul {
 	list-style-position: inside;
