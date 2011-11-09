@@ -71,7 +71,8 @@
         },
         keyup : function(e) {
             
-            if(e.key === 'ctrl+m') {
+            var keycode = e.keyCode || e.which || e.charCode;
+            if(keycode === 77 && e.ctrlKey === true && altKey === false && shiftKey === false) {
                 methods.opt.bn = !methods.opt.bn;
                 if(typeof methods.callback === 'function') {
                 	methods.callback(methods.opt.bn);
