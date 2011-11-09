@@ -2,9 +2,10 @@
 <html debug="true">
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="http://www.omicronlab.com/favicon.ico">
 	<title>Official jQuery Plugin for Avro Phonetic</title>
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Nova+Slim' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script src="https://raw.github.com/LeaVerou/prefixfree/master/prefixfree.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -14,54 +15,66 @@
 	
 	<div class="wrap">
 		<div class="wrapper">
-			<img style="float: right; margin: 5px" src="http://cdn.omicronlab.com/images/avro5-icon-256.png" alt="Avro Icon">
+			<a href="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.min.js" class="download" title="Click to download">Only <strong>4.23KB</strong> gzipped</a>
+		
 			<h1>Official jQuery Plugin for Avro Phonetic</h1>
-			<p class="justify">Various efforts have been made to create a javascript version of <span class="bigger">Avro Phonetic</span>, but none of them is <span class="bigger">100% compatible</span> to Avro Keyboard’s phonetic scheme. So we have created this official version and made it a <span class="bigger">jQuery Plugin</span> so that people can easily integrate <span class="bigger">Bangla typing</span> facility to their sites without depending on a native IME.</p>
+			<p class="right">Various efforts have been made to create a javascript version of <span class="bigger">Avro Phonetic</span>, but none of them is <span class="bigger">100% compatible</span> to Avro Keyboard’s phonetic scheme. So we have created this official version and made it a <span class="bigger">jQuery Plugin</span> so that people can easily integrate <span class="bigger">Bangla typing</span> facility to their sites without depending on a native IME.</p>
 			
-			<a name="demo" href="#demo"></a>
-			<h2>Demo</h2>
-			<p>
-				<textarea class="bangla"></textarea>
-				<small><code>NOTE</code> &nbsp;Press Ctrl+M to switch keyboard</small>
-			</p>
+			<div>
+				<div class="lft leftHalf">
+					<a name="demo" href="#demo"></a>
+					<h2>Demo</h2>
+					<p>
+						<textarea class="bangla"></textarea>
+						<small><code>NOTE</code> &nbsp;Press Ctrl+M to switch keyboard. Hit Space, Enter or Tab to transliterate.</small>
+					</p>
+				</div>
+				<div class="rght half">
+					<h2>Targeted Browser Compatibility</h2>
+			        <table class="browsers">
+			            <tr>
+			                <th>Internet Explorer</th>
+			                <td>6.0</td>
+			                <td>7.0</td>
+			                <td>8.0</td>
+			                <td>9.0</td>
+			            </tr>
 			
-			<h2>Browser Compatibility Matrix</h2>
-	        <table class="browsers">
-	            <tr>
-	                <th>Internet Explorer</th>
-	                <td>6.0</td>
-	                <td>7.0</td>
-	                <td>8.0</td>
-	                <td>9.0</td>
-	            </tr>
-	
-	            <tr>
-	                <th>Firefox</th>
-	                <td colspan="2">3.&#0134</td>
-	                <td>4.&#0134</td>
-	                <td>5.&#0134</td>
-	            </tr>
-	            <tr>
-	
-	                <th>Chrome &#0134</th>
-	                <td colspan=4>Latest stable</td>
-	            </tr>
-	            <tr>
-	                <th>Safari</th>
-	                <td>5.&#0134</td>
-	                <td colspan="2">iOS 3.&#0134</td>
-	
-	                <td>iOS 4.&#0134</td>
-	            </tr>
-	            <tr>
-	                <th>Webkit</th>
-	                <td colspan="4">Android 2.&#0134</td>
-	            </tr>
-	        </table>
+			            <tr>
+			                <th>Firefox</th>
+			                <td colspan="2">3.&#0134</td>
+			                <td>4.&#0134</td>
+			                <td>5.&#0134</td>
+			            </tr>
+			            <tr>
+			
+			                <th>Chrome &#0134</th>
+			                <td colspan=4>Latest stable</td>
+			            </tr>
+			            <tr>
+			                <th>Safari</th>
+			                <td colspan="2">5.&#0134</td>
+			                <td colspan="2">iOS 4.&#0134</td>
+			            </tr>
+			            <tr>
+			                <th>Webkit</th>
+			                <td colspan="4">Android 2.&#0134</td>
+			            </tr>
+			            <tr>
+			                <th>Opera</th>
+			                <td colspan="4">10+</td>
+			            </tr>
+			        </table>
+				</div>
+				<div class="cls"></div>
+			</div>
+			
+	        <h2>How to use</h2>
+	        
 		</div>
 	</div>
 	
-	<script src="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://raw.github.com/torifat/jsAvroPhonetic/1.0-beta/src/avro.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(function(){
 			$('textarea').avro({'bn':true}, function(s){
