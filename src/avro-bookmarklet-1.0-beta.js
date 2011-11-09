@@ -1,5 +1,5 @@
 (function(){
-    if(document.getElementById('avro_js_phonetic')) {
+    if(typeof OmicronLab !== 'undefined') {
         avro_js_loader();
         return;
     }
@@ -28,7 +28,6 @@
             if (this.readyState == 'complete') avro_js_loader();
         }
         script.onload= avro_js_loader;
-        script.setAttribute('id', 'avro_js_phonetic');
         script.src= 'https://raw.github.com/torifat/jsAvroPhonetic/master/src/avro-latest.js';
         root.appendChild(script);
     }
