@@ -34,7 +34,7 @@
             if (this.readyState == 'complete') avro_js_loader();
         }
         script.onload= avro_js_loader;
-        script.src= 'https://raw.github.com/torifat/jsAvroPhonetic/master/src/avro-latest.js';
+        script.src= 'https://raw.github.com/torifat/jsAvroPhonetic/master/dist/avro-latest.js';
         root.appendChild(script);
     }
 
