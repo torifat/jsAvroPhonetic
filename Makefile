@@ -3,7 +3,7 @@ DIST_DIR = dist
 
 COMPILER ?= `which closure`
 
-VER = $(shell git tag)
+VER = $(shell git describe --abbrev=0)
 MIN_HEAD = "/*! JS Avro Phonetic ${VER} http://omicronlab.com | https://raw.github.com/torifat/jsAvroPhonetic/master/MPL-1.1.txt */\n"
 
 all: min tmpclean
