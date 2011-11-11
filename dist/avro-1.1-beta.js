@@ -31,26 +31,33 @@
         init : function(options, callback) {
 
             var defaults = {'bn': true};
-            
             if(options) {
                 $.extend(defaults, options);
             }
+            $(this).data('isBangla', defaults.bn);
             
-            var switchCallback = function(e) {
+            var avroCallback = function(e, state) {
                 this.cb = callback;
-                $(this).data('isBangla', !$(this).data('isBangla'));
-                if(this.cb && typeof this.cb === 'function') {
+                
+                if(e.type === 'switch') {
+                    $(this).data('isBangla', !state);
+                }
+                
+                if(typeof this.cb === 'function') {
                     this.cb($(this).data('isBangla'));
                 }
             }
             
             return this.each(function() {
+                
                 $(this).bind('keydown.avro', methods.keydown);
-                $(this).bind('switch.avro', switchCallback);
-                $(this).data('isBangla', !(!!defaults.bn));
-                $(this).trigger('switch');
+                $(this).bind('switch.avro', avroCallback);
+                $(this).bind('focus.avro', avroCallback);
+                $(this).bind('ready.avro', avroCallback);
+                $(this).trigger('ready');
+                
             });
-
+            
         },
         destroy : function() {
 
@@ -61,9 +68,10 @@
         },
         keydown : function(e) {
             
-            var keycode = e.keyCode || e.which || e.charCode;
+            var keycode = e.which;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
-                $(this).trigger('switch');
+                // http://api.jquery.com/category/events/event-object/
+                $(this).trigger('switch', [$(this).data('isBangla')]);
                 e.preventDefault();
             }
             
