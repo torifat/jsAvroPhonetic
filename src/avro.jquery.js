@@ -36,19 +36,16 @@
                 $.extend(defaults, options);
             }
             
-            if(!(callback && typeof callback === 'function')) {
-                callback = function(b){};
-            }
-            
             var switchCallback = function(e) {
                 this.cb = callback;
                 $(this).data('isBangla', !$(this).data('isBangla'));
-                this.cb($(this).data('isBangla'));
+                if(this.cb && typeof this.cb === 'function') {
+                    this.cb($(this).data('isBangla'));
+                }
             }
             
             return this.each(function() {
                 $(this).bind('keydown.avro', methods.keydown);
-                $(this).bind('keypress.avro', methods.keypress);
                 $(this).bind('switch.avro', switchCallback);
                 $(this).data('isBangla', !(!!defaults.bn));
                 $(this).trigger('switch');
@@ -62,25 +59,20 @@
             })
 
         },
-        keypress : function(e) {
-            
-            if(!$(this).data('isBangla')) {
-                return;
-            }
-            
-            // 32 - Space, 13 - Enter, 9 - Tab
-            var keycode = e.keyCode || e.which || e.charCode;
-            if(keycode === 32 || keycode === 13 || keycode ===9) {
-                methods.replace(this);
-            }
-            
-        },
         keydown : function(e) {
             
             var keycode = e.keyCode || e.which || e.charCode;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 $(this).trigger('switch');
                 e.preventDefault();
+            }
+            
+            if(!$(this).data('isBangla')) {
+                return;
+            }
+            
+            if(keycode === 32 || keycode === 13 || keycode === 9) {
+                methods.replace(this);
             }
             
         },
