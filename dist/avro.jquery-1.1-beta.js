@@ -28,24 +28,15 @@
 (function($){
 
     var methods = {
+        callback : null,
         init : function(options, callback) {
 
-            var defaults = {'bn': true};
+            var defaults = {bn : true};
             if(options) {
                 $.extend(defaults, options);
             }
             
-            var avroCallback = function(e, state) {
-                this.cb = callback;
-                
-                if(e.type === 'switch') {
-                    $(this).data('isBangla', !state);
-                }
-                
-                if(typeof this.cb === 'function') {
-                    this.cb($(this).data('isBangla'));
-                }
-            }
+            methods.callback = callback;
             
             return this.each(function() {
                 
@@ -56,12 +47,39 @@
                 $(this).data('avroEnabled', true);
                 
                 $(this).bind('keydown.avro', methods.keydown);
-                $(this).bind('switch.avro', avroCallback);
-                $(this).bind('focus.avro', avroCallback);
-                $(this).bind('ready.avro', avroCallback);
+                $(this).bind('message.avro', methods.message);
+                $(this).bind('switch.avro', methods.switch);
+                $(this).bind('focus.avro', methods.focus);
+                $(this).bind('ready.avro', methods.ready);
                 $(this).trigger('ready');
                 
             });
+            
+        },
+        message : function(e) {
+            
+            this.cb = methods.callback;
+            
+            if(typeof this.cb === 'function') {
+                this.cb($(this).data('isBangla'));
+            }
+            
+        },
+        switch: function(e, state) {
+            
+            $(this).data('isBangla', !state);
+            $(this).trigger('message');
+            
+        },
+        focus: function(e) {
+            
+            $(this).trigger('message');
+            
+        },
+        ready: function(e) {
+            
+            $(this).after(notification);
+            $(this).trigger('message');
             
         },
         destroy : function() {
