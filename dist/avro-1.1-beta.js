@@ -39,8 +39,6 @@
                 $.extend(defaults, options);
             }
             
-            methods.callback = callback;
-            
             return this.each(function() {
                 
                 if('bangla' in this) {
@@ -184,7 +182,7 @@
 
     $.fn.avro = function(method) {
 
-        if (methods[method]) {
+        if (method in ['init', 'destroy']) {
             return methods[method].apply( this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || ! method) {
             return methods.init.apply(this, arguments);
