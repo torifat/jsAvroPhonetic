@@ -56,7 +56,7 @@
             });
             
         },
-        message : function(e) {
+        notify : function(e) {
             
             this.cb = methods.callback;
             
@@ -68,18 +68,17 @@
         switch: function(e, state) {
             
             $(this).data('isBangla', !state);
-            $(this).trigger('message');
+            $(this).trigger('notify');
             
         },
         focus: function(e) {
             
-            $(this).trigger('message');
+            $(this).trigger('notify');
             
         },
         ready: function(e) {
             
-            $(this).after(notification);
-            $(this).trigger('message');
+            $(this).trigger('notify');
             
         },
         destroy : function() {
