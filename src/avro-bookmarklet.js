@@ -51,7 +51,7 @@
         });
         
         jQuery('#avro_js_loader').slideUp('slow', function() {
-            jQuery(this).find('div').html('Use <strong>Ctrl+M</strong> to switch Keyboard').parent().slideDown()
+            jQuery(this).find('div').html('Use <strong>Ctrl+M</strong> to switch keyboard').parent().slideDown()
         });
         setTimeout(function() {
             jQuery('#avro_js_loader').slideUp('slow');
