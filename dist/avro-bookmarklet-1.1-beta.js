@@ -45,9 +45,9 @@
     }
 
     function avro_js_loader() {
-        jQuery('textarea, input[type=text]').avro({'bn': false});
+        jQuery('textarea, input[type=text]').avro({bangla: false, notification: true});
         jQuery('body').bind('DOMNodeInserted', function(e) {
-            jQuery(e.target).find('textarea, input[type=text]').avro({'bn': false});
+            jQuery(e.target).find('textarea, input[type=text]').avro({bangla: false, notification: true});
         });
         
         jQuery('#avro_js_loader').slideUp('slow', function() {

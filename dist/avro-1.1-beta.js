@@ -51,6 +51,7 @@
                 $(this).bind('notify.avro', methods.notify);
                 $(this).bind('switch.avro', methods.switchKb);
                 $(this).bind('focus.avro', methods.focus);
+                $(this).bind('blur.avro', methods.blur);
                 $(this).bind('ready.avro', methods.ready);
                 if(defaults.notification) {
                     $(this).bind('notification.avro', methods.notification);
@@ -77,6 +78,12 @@
         focus : function(e) {
             
             $(this).trigger('notify');
+            $(this).next().fadeIn();
+            
+        },
+        blur : function(e) {
+            
+            $(this).next().fadeOut();
             
         },
         ready : function(e) {
@@ -91,16 +98,16 @@
                 var notification = $('<div>')
                 .prop('class', 'avro_notification')
                 .css({
-                    background    : '#111',
-                    color         : '#fff',
-                    position      : 'absolute',
-                    top           : $(this).offset().top + $(this).height(),
-                    left          : $(this).offset().left,
-                    width         : $(this).width()
+                    display     : 'none',
+                    background  : '#111',
+                    color       : '#fff',
+                    position    : 'absolute',
+                    top         : $(this).offset().top,
+                    left        : $(this).offset().left + $(this).outerWidth()
                 });
                 $(this).after(notification);
             }
-            $(this).next().html('<code style="display:block;padding:5px 10px;text-align:right;">' + (this.bangla ? 'Bangla' : 'Default') + ' layout is active</code>');
+            $(this).next().html('<code style="display:block;padding:2px 5px;text-align:right;font:normal 14px monospace;">' + (this.bangla ? 'অ' : 'E') + '</code>');
             
         },
         destroy : function() {
