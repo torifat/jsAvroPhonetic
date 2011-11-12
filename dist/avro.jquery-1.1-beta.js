@@ -28,10 +28,13 @@
 (function($){
 
     var methods = {
-        callback : null,
         init : function(options, callback) {
 
-            var defaults = {bn : true};
+            var defaults = {
+                bangla : true, 
+                notification: false
+            };
+            
             if(options) {
                 $.extend(defaults, options);
             }
@@ -40,17 +43,20 @@
             
             return this.each(function() {
                 
-                if($(this).data('avroEnabled')) {
+                if('bangla' in this) {
                     return;
                 }
-                $(this).data('isBangla', defaults.bn);
-                $(this).data('avroEnabled', true);
+                this.bangla = defaults.bangla;
+                this.callback = callback;
                 
                 $(this).bind('keydown.avro', methods.keydown);
-                $(this).bind('message.avro', methods.message);
+                $(this).bind('notify.avro', methods.notify);
                 $(this).bind('switch.avro', methods.switchKb);
                 $(this).bind('focus.avro', methods.focus);
                 $(this).bind('ready.avro', methods.ready);
+                if(defaults.notification) {
+                    $(this).bind('notification.avro', methods.notification);
+                }
                 $(this).trigger('ready');
                 
             });
@@ -58,27 +64,45 @@
         },
         notify : function(e) {
             
-            this.cb = methods.callback;
-            
-            if(typeof this.cb === 'function') {
-                this.cb($(this).data('isBangla'));
+            if(typeof this.callback === 'function') {
+                this.callback(this.bangla);
             }
             
         },
-        switchKb: function(e, state) {
+        switchKb : function(e, state) {
             
-            $(this).data('isBangla', !state);
+            this.bangla = !state;
+            $(this).trigger('notify');
+            $(this).trigger('notification');
+            
+        },
+        focus : function(e) {
+            
             $(this).trigger('notify');
             
         },
-        focus: function(e) {
+        ready : function(e) {
             
             $(this).trigger('notify');
+            $(this).trigger('notification');
             
         },
-        ready: function(e) {
+        notification : function(e) {
             
-            $(this).trigger('notify');
+            if(!$(this).next().hasClass('avro_notification')) {
+                var notification = $('<div>')
+                .prop('class', 'avro_notification')
+                .css({
+                    background    : '#111',
+                    color         : '#fff',
+                    position      : 'absolute',
+                    top           : $(this).offset().top + $(this).height(),
+                    left          : $(this).offset().left,
+                    width         : $(this).width()
+                });
+                $(this).after(notification);
+            }
+            $(this).next().html('<code style="display:block;padding:5px 10px;text-align:right;">' + (this.bangla ? 'Bangla' : 'Default') + ' layout is active</code>');
             
         },
         destroy : function() {
@@ -93,11 +117,11 @@
             var keycode = e.which;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
-                $(this).trigger('switch', [$(this).data('isBangla')]);
+                $(this).trigger('switch', [this.bangla]);
                 e.preventDefault();
             }
             
-            if(!$(this).data('isBangla')) {
+            if(!this.bangla) {
                 return;
             }
             
