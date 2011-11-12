@@ -70,7 +70,10 @@
         },
         switchKb : function(e, state) {
             
-            this.bangla = !state;
+            if(typeof state === 'undefined') {
+                state = !this.bangla;
+            }
+            this.bangla = state;
             $(this).trigger('notify');
             $(this).trigger('notification');
             
@@ -122,7 +125,7 @@
             var keycode = e.which;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
-                $(this).trigger('switch', [this.bangla]);
+                $(this).trigger('switch');
                 e.preventDefault();
             }
             
