@@ -34,7 +34,6 @@
             if(options) {
                 $.extend(defaults, options);
             }
-            $(this).data('isBangla', defaults.bn);
             
             var avroCallback = function(e, state) {
                 this.cb = callback;
@@ -49,6 +48,12 @@
             }
             
             return this.each(function() {
+                
+                if($(this).data('avroEnabled')) {
+                    return;
+                }
+                $(this).data('isBangla', defaults.bn);
+                $(this).data('avroEnabled', true);
                 
                 $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('switch.avro', avroCallback);

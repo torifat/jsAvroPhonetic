@@ -8,11 +8,12 @@
     var ns = document.createElementNS && document.documentElement.namespaceURI;
     
     var loader = ns ? document.createElementNS(ns, 'div') : document.createElement('div');
-    loader.setAttribute('style', 'position:fixed; z-index:1000; top:0; bottom:0; left:0; right:0; background:#000; text-align:center; color:#fff; opacity:0.5;');
-    loader.innerHTML = '<h1 style="margin-top: 30px;">Loading</h1>';
+    loader.setAttribute('style', 'position:fixed; z-index:1000; top:0; left:0; right:0; -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52); border-bottom: 1px solid #000');
+    loader.innerHTML = '<div style="font:normal 13px sans-serif; padding:10px; background:#000; opacity:0.8; color: #fff; text-align:center;">Loading...</div>';
     loader.setAttribute('id', 'avro_js_loader');
     (document.getElementsByTagName('body')[0]).appendChild(loader);
     
+    var noConflictMode = false;
     if(typeof jQuery === 'undefined') {
         var script = ns ? document.createElementNS(ns, 'script') : document.createElement('script');
         script.type = 'text/javascript';
@@ -22,12 +23,17 @@
         script.onload= enable_avro;
         script.src= 'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js';
         root.appendChild(script);
+        if(typeof $ !== 'undefined') {
+            noConflictMode = true;
+        }
     } else {
         enable_avro();
     }
 
     function enable_avro() {
-        $.noConflict();
+        if(noConflictMode) {
+            jQuery.noConflict();
+        }
         var script = ns ? document.createElementNS(ns, 'script') : document.createElement('script');
         script.type = 'text/javascript';
         script.onreadystatechange = function () {
@@ -39,10 +45,17 @@
     }
 
     function avro_js_loader() {
-        jQuery('textarea, input[type=text]').live('focus', function() {
-            jQuery(this).avro('destroy').avro();
-        }).avro('destroy').avro();
-       jQuery('#avro_js_loader').remove();
+        jQuery('textarea, input[type=text]').avro({'bn': false});
+        jQuery('body').bind('DOMNodeInserted', function(e) {
+            jQuery(e.target).find('textarea, input[type=text]').avro({'bn': false});
+        });
+        
+        jQuery('#avro_js_loader').slideUp('slow', function() {
+            jQuery(this).find('div').html('Use <strong>Ctrl+M</strong> to switch Keyboard').parent().slideDown()
+        });
+        setTimeout(function() {
+            jQuery('#avro_js_loader').slideUp('slow');
+        }, 5000);
     }
     
 })();
