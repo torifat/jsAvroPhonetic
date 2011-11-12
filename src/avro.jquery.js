@@ -28,11 +28,13 @@
 (function($){
 
     var methods = {
-        callback : null,
-        currentLayout : 'Bangla',
         init : function(options, callback) {
 
-            var defaults = {bangla : true, notification: false};
+            var defaults = {
+                bangla : true, 
+                notification: false
+            };
+            
             if(options) {
                 $.extend(defaults, options);
             }
@@ -41,11 +43,11 @@
             
             return this.each(function() {
                 
-                if($(this).data('avroEnabled')) {
+                if('bangla' in this) {
                     return;
                 }
-                $(this).data('isBangla', defaults.bangla);
-                $(this).data('avroEnabled', true);
+                this.bangla = defaults.bangla;
+                this.callback = callback;
                 
                 $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('notify.avro', methods.notify);
@@ -62,17 +64,14 @@
         },
         notify : function(e) {
             
-            methods.currentLayout = ($(this).data('isBangla') ? 'Bangla' : 'Default');
-            this.cb = methods.callback;
-            
-            if(typeof this.cb === 'function') {
-                this.cb($(this).data('isBangla'));
+            if(typeof this.callback === 'function') {
+                this.callback(this.bangla);
             }
             
         },
         switchKb : function(e, state) {
             
-            $(this).data('isBangla', !state);
+            this.bangla = !state;
             $(this).trigger('notify');
             $(this).trigger('notification');
             
@@ -90,17 +89,20 @@
         },
         notification : function(e) {
             
-            var notification = $('<div>')
-            .html('<code style="display:block;padding:5px 10px;text-align:right;">' + methods.currentLayout + ' layout is active</code>')
-            .css({
-                background    : '#111',
-                color         : '#fff',
-                position      : 'absolute',
-                top           : $(this).offset().top + $(this).height(),
-                left          : $(this).offset().left,
-                width         : $(this).width()
-            });
-            $(this).after(notification);
+            if(!$(this).next().hasClass('avro_notification')) {
+                var notification = $('<div>')
+                .prop('class', 'avro_notification')
+                .css({
+                    background    : '#111',
+                    color         : '#fff',
+                    position      : 'absolute',
+                    top           : $(this).offset().top + $(this).height(),
+                    left          : $(this).offset().left,
+                    width         : $(this).width()
+                });
+                $(this).after(notification);
+            }
+            $(this).next().html('<code style="display:block;padding:5px 10px;text-align:right;">' + (this.bangla ? 'Bangla' : 'Default') + ' layout is active</code>');
             
         },
         destroy : function() {
@@ -115,11 +117,11 @@
             var keycode = e.which;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
-                $(this).trigger('switch', [$(this).data('isBangla')]);
+                $(this).trigger('switch', [this.bangla]);
                 e.preventDefault();
             }
             
-            if(!$(this).data('isBangla')) {
+            if(!this.bangla) {
                 return;
             }
             
