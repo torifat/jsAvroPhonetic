@@ -48,7 +48,7 @@
                 
                 $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('message.avro', methods.message);
-                $(this).bind('switch.avro', methods.switch);
+                $(this).bind('switch.avro', methods.switchKb);
                 $(this).bind('focus.avro', methods.focus);
                 $(this).bind('ready.avro', methods.ready);
                 $(this).trigger('ready');
@@ -65,7 +65,7 @@
             }
             
         },
-        switch: function(e, state) {
+        switchKb: function(e, state) {
             
             $(this).data('isBangla', !state);
             $(this).trigger('notify');
