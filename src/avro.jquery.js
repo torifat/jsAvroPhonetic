@@ -29,9 +29,10 @@
 
     var methods = {
         callback : null,
+        currentLayout : 'Bangla',
         init : function(options, callback) {
 
-            var defaults = {bn : true};
+            var defaults = {bangla : true, notification: false};
             if(options) {
                 $.extend(defaults, options);
             }
@@ -43,14 +44,17 @@
                 if($(this).data('avroEnabled')) {
                     return;
                 }
-                $(this).data('isBangla', defaults.bn);
+                $(this).data('isBangla', defaults.bangla);
                 $(this).data('avroEnabled', true);
                 
                 $(this).bind('keydown.avro', methods.keydown);
-                $(this).bind('message.avro', methods.message);
+                $(this).bind('notify.avro', methods.notify);
                 $(this).bind('switch.avro', methods.switchKb);
                 $(this).bind('focus.avro', methods.focus);
                 $(this).bind('ready.avro', methods.ready);
+                if(defaults.notification) {
+                    $(this).bind('notification.avro', methods.notification);
+                }
                 $(this).trigger('ready');
                 
             });
@@ -58,6 +62,7 @@
         },
         notify : function(e) {
             
+            methods.currentLayout = ($(this).data('isBangla') ? 'Bangla' : 'Default');
             this.cb = methods.callback;
             
             if(typeof this.cb === 'function') {
@@ -65,20 +70,37 @@
             }
             
         },
-        switchKb: function(e, state) {
+        switchKb : function(e, state) {
             
             $(this).data('isBangla', !state);
             $(this).trigger('notify');
+            $(this).trigger('notification');
             
         },
-        focus: function(e) {
+        focus : function(e) {
             
             $(this).trigger('notify');
             
         },
-        ready: function(e) {
+        ready : function(e) {
             
             $(this).trigger('notify');
+            $(this).trigger('notification');
+            
+        },
+        notification : function(e) {
+            
+            var notification = $('<div>')
+            .html('<code style="display:block;padding:5px 10px;text-align:right;">' + methods.currentLayout + ' layout is active</code>')
+            .css({
+                background    : '#111',
+                color         : '#fff',
+                position      : 'absolute',
+                top           : $(this).offset().top + $(this).height(),
+                left          : $(this).offset().left,
+                width         : $(this).width()
+            });
+            $(this).after(notification);
             
         },
         destroy : function() {
