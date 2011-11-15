@@ -31,8 +31,7 @@
         init : function(options, callback) {
 
             var defaults = {
-                bangla : true, 
-                notification: false
+                bangla : true
             };
             
             if(options) {
@@ -53,9 +52,6 @@
                 $(this).bind('focus.avro', methods.focus);
                 $(this).bind('blur.avro', methods.blur);
                 $(this).bind('ready.avro', methods.ready);
-                if(defaults.notification) {
-                    $(this).bind('notification.avro', methods.notification);
-                }
                 $(this).trigger('ready');
                 
             });
@@ -75,7 +71,6 @@
             }
             this.bangla = state;
             $(this).trigger('notify');
-            $(this).trigger('notification');
             
         },
         focus : function(e) {
@@ -92,25 +87,6 @@
         ready : function(e) {
             
             $(this).trigger('notify');
-            $(this).trigger('notification');
-            
-        },
-        notification : function(e) {
-            
-            if(!$(this).next().hasClass('avro_notification')) {
-                var notification = $('<div>')
-                .prop('class', 'avro_notification')
-                .css({
-                    display     : 'none',
-                    background  : '#111',
-                    color       : '#fff',
-                    position    : 'absolute',
-                    top         : $(this).offset().top,
-                    left        : $(this).offset().left + $(this).outerWidth()
-                });
-                $(this).after(notification);
-            }
-            $(this).next().html('<code style="display:block;padding:2px 5px;text-align:right;font:normal 14px monospace;">' + (this.bangla ? 'অ' : 'E') + '</code>');
             
         },
         destroy : function() {
