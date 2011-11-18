@@ -185,6 +185,14 @@ div.cntr{
 	text-align: center;
 	padding-top: 20px;
 }
+.absolute{position:absolute}
+
+#bk-drag-arrow {
+	display: none;
+	top: 0px;
+	left: 600px;
+	z-index: 5;
+}
 
 /* cupid green (inspired by okcupid.com)
 *******************************************************************************/
