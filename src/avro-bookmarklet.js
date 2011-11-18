@@ -9,7 +9,7 @@
     
     var loader = ns ? document.createElementNS(ns, 'div') : document.createElement('div');
     loader.setAttribute('style', 'position:fixed; z-index:1000; top:0; left:0; right:0; -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .52); border-bottom: 1px solid #000');
-    loader.innerHTML = '<div style="font:normal 13px sans-serif; padding:10px; background:#000; opacity:0.8; color: #fff; text-align:center;">Loading...</div>';
+    loader.innerHTML = '<div style="font:normal 15px sans-serif; padding:10px; background:#000; opacity:0.8; color: #fff; text-align:center;">অভ্র ফনেটিক লোড হচ্ছে...</div>';
     loader.setAttribute('id', 'avro_js_loader');
     (document.getElementsByTagName('body')[0]).appendChild(loader);
     
@@ -51,7 +51,7 @@
         });
         
         jQuery('#avro_js_loader').slideUp('slow', function() {
-            jQuery(this).find('div').html('Use <strong>Ctrl+M</strong> to switch keyboard').parent().slideDown()
+            jQuery(this).find('div').html('কীবোর্ড পরিবর্তন করতে <strong>Ctrl+M</strong> চাপুন').parent().slideDown()
         });
         setTimeout(function() {
             jQuery('#avro_js_loader').slideUp('slow');
