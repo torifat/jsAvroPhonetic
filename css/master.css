@@ -186,9 +186,6 @@ div.cntr{
 	padding: 20px;
 }
 
-a.cupid-green::-moz-focus-inner {
-  border: 0; }
-
 /* cupid green (inspired by okcupid.com)
 *******************************************************************************/
 a.cupid-green {
@@ -209,6 +206,7 @@ a.cupid-green {
   padding: 8px 25px 8px 25px;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
+  -moz-focus-inner: border: 0; 
   width: 150px; }
   
   a.cupid-green:hover {
