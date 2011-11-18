@@ -45,13 +45,9 @@
     }
 
     function avro_js_loader() {
-        jQuery('textarea, input[type=text]').avro({bangla: false, notification: true});
+        jQuery('textarea, input[type=text]').avro({bangla: false}, fb);
         jQuery('body').bind('DOMNodeInserted', function(e) {
-            jQuery(e.target).find('textarea, input[type=text]').avro({bangla: false, notification: true}, function(e){
-                if('Dialog' in window) {
-                    Dialog._tearDown();
-                }
-            });
+            jQuery(e.target).find('textarea, input[type=text]').avro({bangla: false}, fb);
         });
         
         jQuery('#avro_js_loader').slideUp('slow', function() {
@@ -60,6 +56,12 @@
         setTimeout(function() {
             jQuery('#avro_js_loader').slideUp('slow');
         }, 5000);
+    }
+    
+    function fb(e){
+        if('Dialog' in window) {
+            Dialog._tearDown();
+        }
     }
     
 })();
