@@ -50,7 +50,6 @@
                 $(this).bind('notify.avro', methods.notify);
                 $(this).bind('switch.avro', methods.switchKb);
                 $(this).bind('focus.avro', methods.focus);
-                $(this).bind('blur.avro', methods.blur);
                 $(this).bind('ready.avro', methods.ready);
                 $(this).trigger('ready');
                 
@@ -76,12 +75,6 @@
         focus : function(e) {
             
             $(this).trigger('notify');
-            $(this).next().fadeIn();
-            
-        },
-        blur : function(e) {
-            
-            $(this).next().fadeOut();
             
         },
         ready : function(e) {
@@ -109,7 +102,7 @@
                 e.returnValue = false;
                 
                 // e.stopPropagation works only in Firefox.
-                if (e.stopPropagation) {
+                if(e.stopPropagation) {
                     e.stopPropagation();
                     e.preventDefault();
                 }
