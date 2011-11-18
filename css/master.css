@@ -194,6 +194,10 @@ div.cntr{
 	z-index: 5;
 }
 
+.bk-button {
+	cursor: move;
+}
+
 /* cupid green (inspired by okcupid.com)
 *******************************************************************************/
 a.cupid-green {
@@ -227,8 +231,7 @@ a.cupid-green {
     background-image: -ms-linear-gradient(top, #76b347, #5e9e2e);
     background-image: -o-linear-gradient(top, #76b347, #5e9e2e);
     background-image: linear-gradient(top, #76b347, #5e9e2e);
-    box-shadow: inset 0 1px 0 0 #8dbf67;
-    cursor: pointer; }
+    box-shadow: inset 0 1px 0 0 #8dbf67;}
     
   a.cupid-green:active {
     border: 1px solid #5b992b;
