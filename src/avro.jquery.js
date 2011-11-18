@@ -102,9 +102,18 @@
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
                 $(this).trigger('switch', [!this.bangla]);
-                // For FireFox
-                e.stopPropagation();
-                e.preventDefault();
+                
+                // http://www.openjs.com/articles/prevent_default_action/
+                // e.cancelBubble is supported by IE - this will kill the bubbling process.
+                e.cancelBubble = true;
+                e.returnValue = false;
+                
+                // e.stopPropagation works only in Firefox.
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+                return false;
             }
             
             if(!this.bangla) {
