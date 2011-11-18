@@ -102,6 +102,8 @@
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
                 $(this).trigger('switch', [!this.bangla]);
+                // For FireFox
+                e.stopPropagation();
                 e.preventDefault();
             }
             
