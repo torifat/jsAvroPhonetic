@@ -181,3 +181,49 @@ a:hover {
 	text-align: center;
 	padding-bottom: 20px;
 }
+div.cntr{
+	text-align: center;
+	padding: 20px;
+}
+
+a.cupid-green::-moz-focus-inner {
+  border: 0; }
+
+/* cupid green (inspired by okcupid.com)
+*******************************************************************************/
+a.cupid-green {
+  background-color: #7fbf4d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#7fbf4d), to(#63a62f));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -ms-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: -o-linear-gradient(top, #7fbf4d, #63a62f);
+  background-image: linear-gradient(top, #7fbf4d, #63a62f);
+  border: 1px solid #63a62f;
+  border-bottom: 1px solid #5b992b;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 #96ca6d;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 25px 8px 25px;
+  text-align: center;
+  text-shadow: 0 -1px 0 #4c9021;
+  width: 150px; }
+  
+  a.cupid-green:hover {
+    background-color: #76b347;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#76b347), to(#5e9e2e));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -moz-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -ms-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -o-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: linear-gradient(top, #76b347, #5e9e2e);
+    box-shadow: inset 0 1px 0 0 #8dbf67;
+    cursor: pointer; }
+    
+  a.cupid-green:active {
+    border: 1px solid #5b992b;
+    border-bottom: 1px solid #538c27;
+    box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #548c29; }
