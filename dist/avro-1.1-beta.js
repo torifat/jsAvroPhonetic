@@ -86,7 +86,7 @@
 
             return this.each(function() {
                 $(this).unbind('.avro');
-            })
+            });
 
         },
         keydown : function(e) {
@@ -138,12 +138,12 @@
         },
         findLast : function(el, cur) {
         
-        	var last = cur - 1;
-        	while(el.value.charAt(last) !== ' ' && last > 0) {
-        		last--;
-        	}
-        	return last;
-        	
+            var last = cur - 1;
+            while(el.value.charAt(last) !== ' ' && last > 0) {
+                last--;
+            }
+            return last;
+            
         },
         // http://stackoverflow.com/questions/263743/how-to-get-cursor-position-in-textarea
         getCaret : function(el) {
