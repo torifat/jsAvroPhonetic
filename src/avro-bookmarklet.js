@@ -14,6 +14,9 @@
     (document.getElementsByTagName('body')[0]).appendChild(loader);
     
     var noConflictMode = false;
+    if(typeof $ !== 'undefined') {
+        noConflictMode = true;
+    }
     if(typeof jQuery === 'undefined') {
         var script = ns ? document.createElementNS(ns, 'script') : document.createElement('script');
         script.type = 'text/javascript';
@@ -23,9 +26,6 @@
         script.onload= enable_avro;
         script.src= 'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js';
         root.appendChild(script);
-        if(typeof $ !== 'undefined') {
-            noConflictMode = true;
-        }
     } else {
         enable_avro();
     }

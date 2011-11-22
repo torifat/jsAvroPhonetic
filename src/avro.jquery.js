@@ -44,7 +44,7 @@
                     return;
                 }
                 this.bangla = defaults.bangla;
-                this.callback = callback;
+                this.callback = callback || $.noop;
                 
                 $(this).bind('keydown.avro', methods.keydown);
                 $(this).bind('notify.avro', methods.notify);
@@ -58,9 +58,7 @@
         },
         notify : function(e) {
             
-            if(typeof this.callback === 'function') {
-                this.callback(this.bangla);
-            }
+            this.callback(this.bangla);
             
         },
         switchKb : function(e, state) {
