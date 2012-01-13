@@ -1337,15 +1337,15 @@ OmicronLab.Avro.Phonetic = {
             },
             {
                 "find":"Rg",
-                "replace":"ড়্গ"
+                "replace":"ড়্গ"
             },
             {
                 "find":"Rh",
-                "replace":"ঢ়"
+                "replace":"ঢ়"
             },
             {
                 "find":"R",
-                "replace":"ড়"
+                "replace":"ড়"
             },
             {
                 "find":"r",
@@ -1735,7 +1735,7 @@ OmicronLab.Avro.Phonetic = {
                                 "value":"`"
                             }
                         ],
-                        "replace":"য়া"
+                        "replace":"য়া"
                     },
                     {
                         "matches":
@@ -2026,7 +2026,7 @@ OmicronLab.Avro.Phonetic = {
                                 "scope":"!punctuation"
                             }
                         ],
-                        "replace":"য়"
+                        "replace":"য়"
                     },
                     {
                         "matches":
@@ -2036,13 +2036,13 @@ OmicronLab.Avro.Phonetic = {
                                 "scope":"punctuation"
                             }
                         ],
-                        "replace":"ইয়"
+                        "replace":"ইয়"
                     }
                 ]
             },
             {
                 "find":"Y",
-                "replace":"য়"
+                "replace":"য়"
             },
             {
                 "find":"q",
@@ -2065,7 +2065,7 @@ OmicronLab.Avro.Phonetic = {
                                 "scope":"vowel"
                             }
                         ],
-                        "replace":"ওয়"
+                        "replace":"ওয়"
                     },
                     {
                         "matches":
