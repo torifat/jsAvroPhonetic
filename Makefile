@@ -6,7 +6,7 @@ COMPILER ?= `which closure`
 VER = $(shell git describe --abbrev=0)
 MIN_HEAD = "/*! JS Avro Phonetic ${VER} http://omicronlab.com | https://raw.github.com/torifat/jsAvroPhonetic/master/MPL-1.1.txt */\n"
 
-all: min tmpclean dist
+all: min tmpclean
 	@@echo "Avro Phonetic JS Version "${VER}
 clean:
 	@@echo "Removing Distribution directory:" ${DIST_DIR}
