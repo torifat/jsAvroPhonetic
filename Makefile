@@ -60,5 +60,5 @@ tmpclean:
 	@@echo "Cleaning all temp files"
 	@@rm -f tmp.js tmp2.js;
 
-dist:
+tag:
 	@@git tag -f ${VER}
