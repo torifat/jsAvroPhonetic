@@ -61,4 +61,4 @@ tmpclean:
 	@@rm -f tmp.js tmp2.js;
 
 tag:
-	@@git tag -f ${VER}
+	@@git tag -a -f -m "${VER}" ${VER}
