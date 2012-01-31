@@ -88,22 +88,12 @@
 
         },
         keydown : function(e) {
-            
+            // e.which is enough for jQuery
             var keycode = e.which;
             if(keycode === 77 && e.ctrlKey && !e.altKey && !e.shiftKey) {
                 // http://api.jquery.com/category/events/event-object/
                 $(this).trigger('switch', [!this.bangla]);
-                
-                // http://www.openjs.com/articles/prevent_default_action/
-                // e.cancelBubble is supported by IE - this will kill the bubbling process.
-                e.cancelBubble = true;
-                e.returnValue = false;
-                
-                // e.stopPropagation works only in Firefox.
-                if(e.stopPropagation) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                }
+                // jQuery suppose to handle all
                 return false;
             }
             
@@ -129,7 +119,7 @@
                 range.collapse(true);
             }
             else {
-            	el.value = el.value.substring(0, last) + bangla + el.value.substring(cur);
+                el.value = el.value.substring(0, last) + bangla + el.value.substring(cur);
                 el.selectionStart = el.selectionEnd = (cur - (Math.abs(cur - last) - bangla.length));
             }
             
@@ -137,7 +127,11 @@
         findLast : function(el, cur) {
         
             var last = cur - 1;
-            while(el.value.charAt(last) !== ' ' && last > 0) {
+            while(last > 0) {
+                var c = el.value.charAt(last);
+                if(c === ' ' || c === '\n' || c === '\t' || c === '\r') {
+                    break;
+                }
                 last--;
             }
             return last;
@@ -152,7 +146,7 @@
                 el.focus();
 
                 var r = document.selection.createRange();
-                if (r == null) {
+                if (r === null) {
                     return 0;
                 }
 
