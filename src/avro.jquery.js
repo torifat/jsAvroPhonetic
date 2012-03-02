@@ -129,7 +129,7 @@
             var last = cur - 1;
             while(last > 0) {
                 var c = el.value.charAt(last);
-                if(c === ' ' || c === '\n' || c === '\t' || c === '\r') {
+                if($.trim(c) === "") {
                     break;
                 }
                 last--;
