@@ -1,7 +1,8 @@
 SRC_DIR = src
 DIST_DIR = dist
 
-COMPILER ?= `which closure`
+JS_ENGINE ?= `which uglifyjs`
+COMPILER = ${JS_ENGINE} --unsafe --no-copyright
 
 VER = $(shell git describe --abbrev=0)
 MIN_HEAD = "/*! JS Avro Phonetic ${VER} http://omicronlab.com | https://raw.github.com/torifat/jsAvroPhonetic/master/MPL-1.1.txt */\n"
@@ -22,9 +23,9 @@ copy: clean
 	@@cat ${DIST_DIR}/avro.jquery-${VER}.js tmp.js > ${DIST_DIR}/avro-${VER}.js
 
 min: copy
-	@@if test ! -z ${COMPILER}; then \
+	@@if test ! -z ${JS_ENGINE}; then \
 		echo "Minifying Library"; \
-		${COMPILER} --js=${SRC_DIR}/avro-lib.js | \
+		${COMPILER} ${SRC_DIR}/avro-lib.js | \
 		sed 's/find/f/g' | \
 		sed 's/replace/r/g' | \
 		sed 's/matches/m/g' | \
@@ -43,17 +44,17 @@ min: copy
 		> tmp.js; \
 		echo ${MIN_HEAD}`cat tmp.js` > ${DIST_DIR}/avro-lib-${VER}.min.js; \
 		echo "Minifying jQuery Plugins"; \
-		${COMPILER} --js=${SRC_DIR}/avro.jquery.js --js_output_file=tmp2.js; \
+		${COMPILER} ${SRC_DIR}/avro.jquery.js > tmp2.js; \
 		echo ${MIN_HEAD}`cat tmp2.js` > ${DIST_DIR}/avro.jquery-${VER}.min.js; \
 		echo "Creating minified avro.js"; \
 		echo ${MIN_HEAD}`cat tmp.js tmp2.js` > ${DIST_DIR}/avro-${VER}.min.js; \
 		echo "Creating latest avro.js"; \
 		cp ${DIST_DIR}/avro-${VER}.min.js ${DIST_DIR}/avro-latest.js; \
 		echo "Minifying Bookmarklet"; \
-		${COMPILER} --js=${SRC_DIR}/avro-bookmarklet.js > tmp.js; \
+		${COMPILER} ${SRC_DIR}/avro-bookmarklet.js > tmp.js; \
 		echo "javascript:"`cat tmp.js` > ${DIST_DIR}/avro-bookmarklet-${VER}.min.js; \
 	else \
-		echo "You must have Google Closure Compiler installed in order to minify Avro Phonetic JS."; \
+		echo "You must have UglifyJS installed in order to minify Avro Phonetic JS."; \
 	fi
 
 tmpclean:
