@@ -196,6 +196,10 @@ OmicronLab.Avro.Phonetic = {
                 "replace":"পশ"
             },
             {
+                "find":"bdh",
+                "replace":"ব্ধ"
+            },
+            {
                 "find":"bj",
                 "replace":"ব্জ"
             },

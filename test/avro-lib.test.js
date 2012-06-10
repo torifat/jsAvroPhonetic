@@ -416,9 +416,10 @@ $(function () {
         equal(avro.parse(",`,"), ",,");
         equal(avro.parse("$"), "৳");
         equal("", avro.parse("`"));
+        equal(avro.parse("bdh"), "ব্ধ");
     });
 
-    test("Sentence Test", function () {
+    test("Other Test", function () {
         equal(avro.parse("!"), "!");
     });
 
