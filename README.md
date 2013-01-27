@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/torifat/jsAvroPhonetic.png?branch=master)](https://travis-ci.org/torifat/jsAvroPhonetic)
 
 jsAvroPhonetic is a Javascript implementation of
-[Avro Phonetic](www.omicronlab.com/avro-keyboard.html).
+[Avro Phonetic](http://www.omicronlab.com/avro-keyboard.html).
 
 # License
 
