@@ -4,7 +4,7 @@ DIST_DIR = dist
 JS_ENGINE ?= `which uglifyjs`
 COMPILER = ${JS_ENGINE} --unsafe --no-copyright
 
-VER = $(shell git describe --abbrev=0)
+VER = $(shell git describe --tags --abbrev=0)
 MIN_HEAD = "/*! JS Avro Phonetic ${VER} http://omicronlab.com | https://raw.github.com/torifat/jsAvroPhonetic/master/MPL-1.1.txt */\n"
 
 all: min tmpclean
