@@ -1,0 +1,18 @@
+{
+  "name": "avro-keyboard",
+  "version": "1.1.4",
+  "homepage": "http://www.omicronlab.com/",
+  "main" : "./dist/avro-latest.js",
+  "authors": [
+    "Rifat Nabi <to.rifat@gmail.com>",
+    "Mehdi Hasan Khan <mhasan@omicronlab.com>"
+  ],
+  "license": "MPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

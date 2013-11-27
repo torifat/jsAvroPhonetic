@@ -1,0 +1,13 @@
+{
+  "name": "jsAvroPhonetic",
+  "version": "1.1.4",
+  "homepage": "https://github.com/torifat/jsAvroPhonetic",
+  "authors": [
+    "Rifat Nabi <to.rifat@gmail.com>",
+    "Mehdi Hasan Khan <mhasan@omicronlab.com>"
+  ],
+  "license": "MPL",
+  "dependencies": {
+    "avro-keyboard": "~1.1.4"
+  }
+}
