@@ -1,9 +1,3 @@
-/*global $, module, test, equal, OmicronLab*/
-$(function () {
-
-    "use strict";
-    var avro = OmicronLab.Avro.Phonetic;
-
     module("Avro Phonetic Library");
     test("Basic Test", function () {
         equal(avro.parse("bhl"), "ভ্ল");
@@ -427,4 +421,3 @@ $(function () {
         equal(avro.parse("ami banglay gan gai"), "আমি বাংলায় গান গাই");
         equal(avro.parse("amader valObasa hoye gel ghas, kheye gel goru ar diye gelo ba^sh"), "আমাদের ভালোবাসা হয়ে গেল ঘাস, খেয়ে গেল গরু আর দিয়ে গেল বাঁশ");
     });
-});

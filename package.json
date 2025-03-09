@@ -1,0 +1,55 @@
+{
+  "name": "@omicronlab/avro-keyboard",
+  "version": "2.0.0",
+  "description": "JavaScript implementation of Avro Phonetic Bangla keyboard.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "vitest",
+    "format": "biome format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torifat/jsAvroPhonetic.git"
+  },
+  "keywords": [
+    "avro",
+    "ime",
+    "bangla",
+    "phonetic"
+  ],
+  "author": {
+    "name": "OmicronLab",
+    "url": "http://www.omicronlab.com/"
+  },
+  "maintainers": [
+    {
+      "name": "Rifat Nabi",
+      "email": "to.rifat@gmail.com"
+    },
+    {
+      "name": "Mehdi Hasan Khan",
+      "email": "mhasan@omicronlab.com"
+    }
+  ],
+  "license": {
+    "type": "MPL-1.1",
+    "url": "https://www.mozilla.org/en-US/MPL/1.1/"
+  },
+  "bugs": {
+    "url": "https://github.com/torifat/jsAvroPhonetic/issues"
+  },
+  "homepage": "https://github.com/torifat/jsAvroPhonetic#readme",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "vitest": "^3.0.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild"
+    ]
+  }
+}
