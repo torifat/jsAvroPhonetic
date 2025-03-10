@@ -28,14 +28,14 @@
 class Avro {
 	parse(input) {
 		const fixed = this.fixString(input);
-		const output = "";
-		for (const cur = 0; cur < fixed.length; ++cur) {
-			const start = cur,
+		let output = "";
+		for (let cur = 0; cur < fixed.length; ++cur) {
+			let start = cur,
 				end = cur + 1,
 				prev = start - 1;
-			const matched = false;
+			let matched = false;
 
-			for (const i = 0; i < this.#data.patterns.length; ++i) {
+			for (let i = 0; i < this.#data.patterns.length; ++i) {
 				const pattern = this.#data.patterns[i];
 				end = cur + pattern.find.length;
 				if (
@@ -44,12 +44,12 @@ class Avro {
 				) {
 					prev = start - 1;
 					if (typeof pattern.rules !== "undefined") {
-						for (const j = 0; j < pattern.rules.length; ++j) {
+						for (let j = 0; j < pattern.rules.length; ++j) {
 							const rule = pattern.rules[j];
-							const replace = true;
+							let replace = true;
 
-							const chk = 0;
-							for (const k = 0; k < rule.matches.length; ++k) {
+							let chk = 0;
+							for (let k = 0; k < rule.matches.length; ++k) {
 								const match = rule.matches[k];
 
 								if (match.type === "suffix") {
@@ -156,8 +156,8 @@ class Avro {
 	}
 
 	fixString(input) {
-		const fixed = "";
-		for (const i = 0; i < input.length; ++i) {
+		let fixed = "";
+		for (let i = 0; i < input.length; ++i) {
 			const cChar = input.charAt(i);
 			if (this.isCaseSensitive(cChar)) {
 				fixed += cChar;
@@ -171,11 +171,11 @@ class Avro {
 	isVowel(c) {
 		return this.#data.vowel.indexOf(c.toLowerCase()) >= 0;
 	}
-  
+
 	isConsonant(c) {
 		return this.#data.consonant.indexOf(c.toLowerCase()) >= 0;
 	}
-  
+
 	isPunctuation(c) {
 		return !(this.isVowel(c) || this.isConsonant(c));
 	}
@@ -192,7 +192,7 @@ class Avro {
 		return this.#data.casesensitive.indexOf(c.toLowerCase()) >= 0;
 	}
 
-  #data = {
+	#data = {
 		patterns: [
 			{
 				find: "bhl",
@@ -1931,4 +1931,5 @@ class Avro {
 	};
 }
 
-export { Avro };
+const avro = new Avro();
+export { avro };

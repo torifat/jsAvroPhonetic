@@ -1,8 +1,6 @@
 # jsAvroPhonetic
 
-[![Build Status](http://img.shields.io/travis/torifat/jsAvroPhonetic.svg?style=flat-square)](https://travis-ci.org/torifat/jsAvroPhonetic)
-
-jsAvroPhonetic is a Javascript implementation of
+jsAvroPhonetic is a JavaScript implementation of
 [Avro Phonetic](http://www.omicronlab.com/avro-keyboard.html).
 
 # License
